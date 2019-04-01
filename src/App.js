@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Articles, CurrentDate, Footer, Header, NavBar, TopArticles } from "./Components/index";
+import { MainArticles, Footer, Header, NavBar, SignIn, TopArticles } from "./Components/index";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <CurrentDate />
+        <SignIn />
         <NavBar />
         <TopArticles />
-        <Articles />
+        <MainArticles />
         <Footer />
       </div>
     );
