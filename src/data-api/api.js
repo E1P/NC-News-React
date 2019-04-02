@@ -5,7 +5,6 @@ const request = axios.create({
 });
 
 export const getArticles = params => {
-  console.log("params>>>", params);
   return request
     .get("/articles", { params })
     .then(({ data }) => {
@@ -76,7 +75,6 @@ export const getUsers = () => {
 };
 
 export const incrementVote = (id, vote) => {
-  console.log("vote object: ", vote, id);
   return request
     .patch(`/articles/${id}`, vote)
     .then(({ data }) => {
