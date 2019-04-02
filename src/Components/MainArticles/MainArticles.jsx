@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Loader } from "../../Components";
+import { Loader } from "../../Components";
 import { Link } from "@reach/router";
 import { getArticles } from "../../data-api/api";
 
