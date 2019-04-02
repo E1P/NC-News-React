@@ -1,5 +1,10 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 export default function SignIn() {
-  return <div className="sign-in">Sign In</div>;
+  return (
+    <Link className="sign-in" to="/sign-in">
+      Sign In
+    </Link>
+  );
 }
