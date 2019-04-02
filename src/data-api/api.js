@@ -32,12 +32,6 @@ export const getCommentsByArticleId = id => {
 };
 
 export const postNewArticle = article => {
-  // const test = {
-  //   title: "It's a game of two halves",
-  //   topic: "football",
-  //   author: "grumpy19",
-  //   body: "One half lasts approximately 45 minutes. The second half requires similar levels of endurance."
-  // };
   return request
     .post("/articles", article)
     .then(({ data }) => data)
