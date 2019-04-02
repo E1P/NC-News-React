@@ -15,12 +15,11 @@ body {
 @media screen and (max-width: 640px) {
   .App {
     display: grid;
-    grid-template: 1.2fr 0.3fr 3fr 4fr 0.3fr / 1fr 3fr 1fr;
+    grid-template: 1.2fr 0.3fr 7fr 4fr 0.3fr / 1fr 3fr 1fr;
     grid-template-areas:
       "header header sign-in"
       "nav nav nav"
-      "top-articles top-articles top-articles"
-      "main-articles main-articles main-articles"
+      "router-main router-main router-main"
       "footer footer footer";
     width: 100%;
     height: 100vh;
@@ -41,8 +40,9 @@ body {
   border: 1px solid red;
 }
 .current-date {
-  grid-area: current-date;
+  border: 1px solid grey;
 }
+
 .nav {
   grid-area: nav;
   border: 1px solid red;
@@ -50,12 +50,15 @@ body {
   overflow-x: auto;
   scrollbar-width: none;
 }
+
+.router-main {
+  grid-area: router-main;
+}
+
 .top-articles {
-  grid-area: top-articles;
   border: 1px solid red;
 }
 .main-articles {
-  grid-area: main-articles;
   display: flex;
   flex-flow: column nowrap;
   overflow-y: auto;
