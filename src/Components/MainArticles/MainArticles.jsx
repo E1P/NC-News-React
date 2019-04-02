@@ -6,6 +6,8 @@ import { getArticles } from "../../data-api/api";
 export default class MainArticles extends Component {
   state = {
     articles: [],
+    sort_by: "",
+    order: "",
     isLoading: true
   };
 
@@ -19,16 +21,24 @@ export default class MainArticles extends Component {
     this.fetchArticles();
   }
 
-  componentDidUpdate(props, state) {
+  componentDidUpdate(prevProps, prevState) {
+    const propsChanged = prevProps.topic !== this.props.topic;
+    const stateChanged = prevState.sort_by !== this.state.sort_by || prevState.order !== this.state.order;
     const params = { topic: this.props.topic, sort_by: this.state.sort_by, order: this.state.order };
-    if (props.topic !== this.props.topic || state.sort_by !== this.state.sort_by || state.order !== this.state.order) this.fetchArticles(params);
+    if (propsChanged || stateChanged) this.fetchArticles(params);
   }
 
   render() {
-    if (this.state.isLoading) return <Loader />;
+    const { articles } = this.state;
+    if (!articles.length)
+      return (
+        <div>
+          <Loader />
+        </div>
+      );
     return (
       <div className="main-articles">
-        {this.state.articles.map(articlePreview => {
+        {articles.map(articlePreview => {
           return (
             <Link to={`/articles/${articlePreview.article_id}`} key={articlePreview.article_id}>
               <section className="article-preview">
