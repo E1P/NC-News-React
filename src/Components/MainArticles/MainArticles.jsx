@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Loader } from "../../Components";
+import { Loader, ArticlePreview } from "../../Components";
 import { Link } from "@reach/router";
 import { getArticles } from "../../data-api/api";
 
@@ -38,18 +38,10 @@ export default class MainArticles extends Component {
       );
     return (
       <div className="main-articles">
-        {articles.map(articlePreview => {
+        {articles.map(article => {
           return (
-            <Link to={`/articles/${articlePreview.article_id}`} key={articlePreview.article_id}>
-              <section className="article-preview">
-                <div>
-                  <div>Votes:{articlePreview.votes}</div>
-                  <div>Comments: {articlePreview.comment_count}</div>
-                  <div>{articlePreview.created_at.slice(0, 10)}</div>
-                </div>
-                <div />
-                <div>{articlePreview.title}</div>
-              </section>
+            <Link to={`/articles/${article.article_id}`} key={article.article_id}>
+              <ArticlePreview article={article} />
             </Link>
           );
         })}
