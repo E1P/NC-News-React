@@ -15,14 +15,14 @@ body {
 @media screen and (max-width: 640px) {
   .App {
     display: grid;
-    grid-template: 1.2fr 0.3fr 7fr 4fr 0.3fr / 1fr 3fr 1fr;
+    grid-template: 1.2fr 0.5fr 7fr 0.3fr / 1fr 3fr 1fr;
     grid-template-areas:
       "header header sign-in"
       "nav nav nav"
       "router-main router-main router-main"
       "footer footer footer";
     width: 100%;
-    height: 100vh;
+    height: 99vh;
     margin: 0 auto;
     padding: 1px;
     font-size: 1.5em;
@@ -45,23 +45,35 @@ body {
 
 .nav {
   grid-area: nav;
+  display: flex;
+  flex-flow: row nowrap;
   border: 1px solid red;
   white-space: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
+.nav-element {
+  margin: 3px;
+}
+
 .router-main {
   grid-area: router-main;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: scroll;
+  border: 1px solid red;
 }
 
 .top-articles {
+  display: flex;
+  flex-flow: column nowrap;
   border: 1px solid red;
 }
 .main-articles {
   display: flex;
   flex-flow: column nowrap;
-  overflow-y: auto;
+  overflow-y: scroll;
   border: 1px solid red;
 }
 .footer {
