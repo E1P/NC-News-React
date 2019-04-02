@@ -41,7 +41,6 @@ body {
 }
 .current-date {
   color: red;
-  transition: color 450ms;
 }
 
 .nav {
@@ -91,21 +90,30 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  border: 1px solid grey;
+}
+
+.comment {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
 }
 
 .fade-in {
-  background-color: black;
+  opacity: 0;
   animation: fadeIn ease-in 1;
   animation-fill-mode: forwards;
-  animation-direction: 1s;
+  animation-duration: 1s;
   animation-delay: 1.5;
 }
 
 @keyframes fadeIn {
   from {
-    background-color: black;
+    opacity: 0;
   }
   to {
-    background-color: rgba(0, 0, 0, 0);
+    opacity: 1;
   }
 }
