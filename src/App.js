@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import "./App.css";
-import { Footer, Header, NavBar, SignIn, MainPage, TopicPage, SignInPage, SingleArticle, ArticleForm } from "./Components/index";
+import { Footer, Header, NavBar, SignIn, MainPage, TopicPage, SignInPage, SingleArticle, Form } from "./Components/index";
 
 class App extends Component {
   render() {
@@ -10,12 +10,12 @@ class App extends Component {
         <Header />
         <SignIn />
         <NavBar />
-        <Router>
-          <TopicPage />
-          <MainPage />
-          <SingleArticle />
-          <ArticleForm />
-          <SignInPage />
+        <Router className="router-main">
+          <MainPage path="/" />
+          <TopicPage path="/topics/:topic" />
+          <SingleArticle path="/articles/:article_id" />
+          <Form path="/form/:type" />
+          <SignInPage path="/sign-in" />
         </Router>
         <Footer />
       </div>
