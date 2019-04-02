@@ -18,7 +18,8 @@ export default class MainArticles extends Component {
   };
 
   componentDidMount() {
-    this.fetchArticles();
+    const params = { topic: this.props.topic, sort_by: this.state.sort_by, order: this.state.order };
+    this.fetchArticles(params);
   }
 
   componentDidUpdate(prevProps, prevState) {
