@@ -3,7 +3,7 @@ import "./loader.css";
 
 export default function Loader() {
   return (
-    <div className="main-articles">
+    <div>
       <div className="main-container">
         <div className="rectangle delay7" />
         <div className="rectangle delay6" />
