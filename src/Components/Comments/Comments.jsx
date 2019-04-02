@@ -9,7 +9,7 @@ export default class Comments extends Component {
   componentDidMount() {
     const { article_id } = this.props;
     getCommentsByArticleId(article_id).then(({ comments }) => {
-      this.setState({ comments }, () => console.log(this.state));
+      this.setState({ comments });
     });
   }
 
@@ -19,7 +19,7 @@ export default class Comments extends Component {
         <h4>Article critiques >>></h4>
         {this.state.comments.map(comment => {
           return (
-            <div key={comment.comment_id}>
+            <div key={comment.comment_id} className="comment">
               {" "}
               <h5>Author: {comment.author}</h5>
               <p>{comment.body}</p>
