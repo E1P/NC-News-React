@@ -74,6 +74,15 @@ export const getUsers = () => {
     .catch(err => console.log("Error from axios >>> ", err));
 };
 
+export const getTopics = () => {
+  return request
+    .get("/topics")
+    .then(({ data }) => {
+      return data;
+    })
+    .catch(err => console.log("Error from axios >>> ", err));
+};
+
 export const incrementVote = (id, vote) => {
   return request
     .patch(`/articles/${id}`, vote)
