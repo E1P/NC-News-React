@@ -6,7 +6,7 @@ import { Footer, Header, NavBar, SignIn, MainPage, SignInPage, SingleArticle, Fo
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App fade-in">
         <Header />
         <SignIn />
         <NavBar />
