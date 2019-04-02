@@ -1,11 +1,11 @@
 import React from "react";
-import { MainArticles, TopArticles } from "./Components/index";
+import { MainArticles, TopArticles } from "../index";
 
 export default function MainPage() {
   return (
     <div className="main">
-      <MainArticles />
       <TopArticles />
+      <MainArticles />
     </div>
   );
 }
