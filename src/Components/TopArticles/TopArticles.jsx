@@ -8,9 +8,11 @@ export default class TopArticles extends Component {
   };
 
   fetchTopArticles = () => {
+    const { limit, topic } = this.props;
     const params = {
+      topic: topic || null,
       sort_by: "comment_count",
-      limit: 3
+      limit: limit
     };
     getArticles(params).then(({ articles }) => {
       this.setState({ topArticles: articles });
@@ -19,6 +21,12 @@ export default class TopArticles extends Component {
 
   componentDidMount() {
     this.fetchTopArticles();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.topic !== prevProps.topic) {
+      this.fetchTopArticles();
+    }
   }
 
   render() {
