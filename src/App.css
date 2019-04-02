@@ -22,7 +22,7 @@ body {
       "router-main router-main router-main"
       "footer footer footer";
     width: 100%;
-    height: 99vh;
+    height: 100vh;
     margin: 0 auto;
     padding: 1px;
     font-size: 1.5em;
@@ -40,7 +40,8 @@ body {
   border: 1px solid red;
 }
 .current-date {
-  border: 1px solid grey;
+  color: red;
+  transition: color 450ms;
 }
 
 .nav {
@@ -83,4 +84,28 @@ body {
 
 .article-preview {
   border: 1px solid red;
+}
+
+.article {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.fade-in {
+  background-color: black;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-direction: 1s;
+  animation-delay: 1.5;
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: black;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
 }
