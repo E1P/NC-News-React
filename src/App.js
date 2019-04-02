@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Router } from "@reach/router";
 import "./App.css";
-import { MainArticles, Footer, Header, NavBar, SignIn, TopArticles } from "./Components/index";
+import { Footer, Header, NavBar, SignIn, MainPage, TopicPage, SignInPage, SingleArticle, ArticleForm } from "./Components/index";
 
 class App extends Component {
   render() {
@@ -9,8 +10,13 @@ class App extends Component {
         <Header />
         <SignIn />
         <NavBar />
-        <TopArticles />
-        <MainArticles />
+        <Router>
+          <TopicPage />
+          <MainPage />
+          <SingleArticle />
+          <ArticleForm />
+          <SignInPage />
+        </Router>
         <Footer />
       </div>
     );
