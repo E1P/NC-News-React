@@ -33,7 +33,7 @@ export default class MainArticles extends Component {
     const { articles } = this.state;
     if (!articles.length)
       return (
-        <div>
+        <div /* className="main-articles" */>
           <Loader />
         </div>
       );
