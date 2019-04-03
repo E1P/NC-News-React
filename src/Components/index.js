@@ -13,7 +13,7 @@ import MainPage from "./MainPage/MainPage";
 import SignInPage from "./SignInPage/SignInPage";
 import SingleArticle from "./SingleArticle/SingleArticle";
 import ArticlePreview from "./ArticlePreview/ArticlePreview";
-import ToolBar from "./ToolBar/ToolBar";
+import FormButton from "./FormButton/FormButton";
 
 export {
   MainArticles,
@@ -31,5 +31,5 @@ export {
   TopArticlePreview,
   Form,
   SignInPage,
-  ToolBar
+  FormButton
 };
