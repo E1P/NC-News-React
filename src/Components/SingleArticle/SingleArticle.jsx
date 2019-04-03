@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getArticleById } from "../../data-api/api";
 import Comments from "../Comments/Comments";
+import FormButton from "../FormButton/FormButton";
 
 export default class SingleArticle extends Component {
   state = {
@@ -23,6 +24,7 @@ export default class SingleArticle extends Component {
     const { article_id } = this.props;
     return (
       <div>
+        {<FormButton article_id={article_id} type="comment" />}
         <section className="article">
           <h6>{article.topic}</h6>
           <h5>{article.title}</h5>
