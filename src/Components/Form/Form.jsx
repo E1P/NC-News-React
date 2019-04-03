@@ -1,12 +1,8 @@
 import React, { Component } from "react";
+import { postNewArticle, postNewComment } from "../../data-api/api";
 
 export default class Form extends Component {
-  state = {
-    topic: "",
-    title: "",
-    author: "",
-    body: ""
-  };
+  state = {};
 
   componentDidMount() {}
 
@@ -17,7 +13,10 @@ export default class Form extends Component {
     this.setState({ [id]: value });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = () => {
+    const { type } = this.props;
+    type === "article" ? postNewArticle() : postNewComment();
+  };
 
   render() {
     const { type } = this.props;
