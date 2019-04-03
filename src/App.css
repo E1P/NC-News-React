@@ -104,26 +104,29 @@ body {
   border: 1px solid grey;
 }
 
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 .button:hover {
   cursor: pointer;
 }
 
 .fade-in {
   opacity: 0;
-  background-color: black;
   animation: fadeIn ease-in 1;
   animation-fill-mode: forwards;
   animation-duration: 1s;
-  animation-delay: 1s;
+  animation-delay: 0;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    background-color: black;
   }
   to {
     opacity: 1;
-    background-color: white;
   }
 }
