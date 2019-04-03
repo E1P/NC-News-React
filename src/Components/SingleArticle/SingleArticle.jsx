@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { getArticleById } from "../../data-api/api";
-import Comments from "../Comments/Comments";
-import FormButton from "../FormButton/FormButton";
+import { Comments, FormButton, DeleteButton } from "../index";
 
 export default class SingleArticle extends Component {
   state = {
@@ -33,6 +32,7 @@ export default class SingleArticle extends Component {
           <p>{article.created_at}</p>
           <p>Comments so far: {article.comment_count}</p>
           <p>{article.votes} people like this article.</p>
+          <DeleteButton article_id={article_id} type="article" />
         </section>
         <Comments article_id={article_id} />
       </div>
