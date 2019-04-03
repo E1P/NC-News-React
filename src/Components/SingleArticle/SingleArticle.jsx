@@ -23,7 +23,7 @@ export default class SingleArticle extends Component {
     const { article_id } = this.props;
     return (
       <div>
-        {<FormButton article_id={article_id} type="comment" />}
+        <FormButton article_id={article_id} type="comment" />
         <section className="article">
           <h6>{article.topic}</h6>
           <h5>{article.title}</h5>
@@ -32,7 +32,7 @@ export default class SingleArticle extends Component {
           <p>{article.created_at}</p>
           <p>Comments so far: {article.comment_count}</p>
           <p>{article.votes} people like this article.</p>
-          <DeleteButton article_id={article_id} type="article" />
+          <DeleteButton id={article_id} type="article" />
         </section>
         <Comments article_id={article_id} />
       </div>
