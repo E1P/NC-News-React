@@ -8,7 +8,12 @@ export default class SignInPage extends Component {
     password: ""
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    getUsers().then(({ users }) => {
+      console.log(users);
+      this.setState({ users });
+    });
+  }
 
   componentDidUpdate() {}
 
