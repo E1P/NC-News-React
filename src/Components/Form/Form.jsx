@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { postNewArticle, postNewComment } from "../../data-api/api";
+import { navigate } from "@reach/router";
 
 export default class Form extends Component {
   state = {};
@@ -14,8 +15,10 @@ export default class Form extends Component {
   };
 
   handleSubmit = () => {
-    const { type } = this.props;
-    type === "article" ? postNewArticle() : postNewComment();
+    const { type, article_id } = this.props;
+    return (type === "article" ? postNewArticle() : postNewComment()).then(() => {
+      navigate(`/articles/${article_id}`);
+    });
   };
 
   render() {
