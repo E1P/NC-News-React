@@ -17,25 +17,21 @@ export default class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { type, article_id } = this.props;
-    type === "article" &&
-      postNewArticle().then(({ article }) => {
-        navigate(`/articles/${article.article_id}`);
-      });
-    type === "comment" &&
-      postNewComment().then(() => {
-        navigate(`/articles/${article_id}`);
-      });
+    const body = { ...this.state, username: "tickle122" };
+    console.log("Form body: ", body);
+    type === "article" && postNewArticle(body).then(({ article }) => navigate(`/articles/${article.article_id}`));
+    type === "comment" && postNewComment(article_id, body).then(() => navigate(`/articles/${article_id}`));
   };
 
   render() {
-    const { type } = this.props;
+    const { type, article_id } = this.props;
     return (
       <div>
         {type} Form{" "}
-        <div className="button" onClick={() => navigate("/")}>
+        <div className="button" onClick={() => navigate(type === "comment" ? `/articles/${article_id}` : "/")}>
           Cancel
         </div>
-        <form className="form">
+        <form className="form" onSubmit={this.handleSubmit} autoComplete="on">
           {type === "article" && (
             <Fragment>
               <label htmlFor="topic">Topic: </label>
@@ -46,7 +42,7 @@ export default class Form extends Component {
             </Fragment>
           )}
           <textarea required id="body" onChange={this.handleChange} rows="10" cols="30" />
-          <button onSubmit={this.handleSubmit} className="button">
+          <button type="submit" className="button">
             Submit
           </button>
         </form>
