@@ -12,9 +12,11 @@ class App extends Component {
         <NavBar />
         <Router className="router-main">
           <MainPage path="/" />
+          <MainPage path="/articles" />
           <MainPage path="/topics/:topic" />
           <SingleArticle path="/articles/:article_id" />
-          <Form path="/form/:type" />
+          <Form path="/form/:type/" />
+          <Form path="/form/:type/:article_id" />
           <SignInPage path="/sign-in" />
         </Router>
         <Footer />
