@@ -41,14 +41,14 @@ export const postNewArticle = article => {
 export const deleteArticle = id => {
   return request
     .delete(`/articles/${id}`)
-    .then(res => res)
+    .then(({ data }) => data)
     .catch(err => console.log("Error from axios >>> ", err.response));
 };
 
-export const postComment = (id, comment) => {
+export const postNewComment = (id, comment) => {
   return request
     .post(`/articles/${id}/comments`, comment)
-    .then(res => res)
+    .then(({ data }) => data)
     .catch(err => console.log("Error from axios >>> ", err.response));
 };
 
