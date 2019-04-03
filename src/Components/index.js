@@ -14,6 +14,8 @@ import SignInPage from "./SignInPage/SignInPage";
 import SingleArticle from "./SingleArticle/SingleArticle";
 import ArticlePreview from "./ArticlePreview/ArticlePreview";
 import FormButton from "./FormButton/FormButton";
+import DeleteButton from "./DeleteButton/DeleteButton";
+import Comments from "./Comments/Comments";
 
 export {
   MainArticles,
@@ -31,5 +33,7 @@ export {
   TopArticlePreview,
   Form,
   SignInPage,
-  FormButton
+  FormButton,
+  DeleteButton,
+  Comments
 };
