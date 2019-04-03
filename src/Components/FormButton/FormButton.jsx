@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 export default function FormButton(props) {
   const { type } = props;
   return (
-    <div>
+    <div className="button">
       <Link to={`/form/${type}`}>
         <div>Post {`${type}`}</div>
       </Link>
