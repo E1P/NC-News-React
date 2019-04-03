@@ -7,11 +7,11 @@ export default class DeleteButton extends Component {
     const { type, id } = this.props;
     const path = `${type}s/${id}`;
     type === "article" &&
-      deleteArticle().then(({ article }) => {
-        navigate(`/articles/${article[path]}`);
+      deleteArticle(id).then(() => {
+        navigate(`/${path}`);
       });
     type === "comment" &&
-      deleteComment().then(() => {
+      deleteComment(id).then(() => {
         navigate(`/articles/${path}`);
       });
   };
