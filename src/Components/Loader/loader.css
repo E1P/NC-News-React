@@ -4,7 +4,7 @@
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
-  height: 80%;
+  height: 400px;
   width: 100%;
 }
 
@@ -14,9 +14,10 @@
   margin: 1%;
   border-radius: 10px;
   background-color: rgb(255, 0, 0, 0);
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-name: pulse;
-  /* animation-direction: alternate; */
+  /* animation-timing-function: steps(10); */
+  /* animation-direction: alternate-reverse; */
   animation-iteration-count: infinite;
 }
 
