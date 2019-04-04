@@ -34,7 +34,7 @@ export default class NavBar extends Component {
         </Link>
         {topics.map(topic => {
           return (
-            <Link key={topic.slug} to={`/topics/${topic.slug}`} className="button">
+            <Link key={topic.slug} to={`/topics/${topic.slug}`} className="nav-element">
               <p>{topic.slug}</p>
             </Link>
           );
