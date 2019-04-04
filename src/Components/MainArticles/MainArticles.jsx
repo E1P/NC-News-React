@@ -57,6 +57,7 @@ export default class MainArticles extends Component {
             </Link>
           );
         })}
+        <div className="fade-spacer" />
       </div>
     );
   }
