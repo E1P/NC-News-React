@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:visited {
+  color: white;
+}
+
 body {
   font-size: 62.5%;
   font-family: "Orbitron", sans-serif;
@@ -14,9 +24,9 @@ body {
 
 @media screen and (max-width: 640px) {
   .App {
-    background-color: white;
+    background-color: rgba(0, 102, 255, 0.6);
     display: grid;
-    grid-template: 1.2fr 0.5fr 7fr 0.3fr / 1fr 3fr 1fr;
+    grid-template: 0.9fr 0.3fr 7fr 0.3fr / 1fr 3fr 1fr;
     grid-template-areas:
       "header header sign-in"
       "nav nav nav"
@@ -33,12 +43,12 @@ body {
 
 .header {
   grid-area: header;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   text-align: left;
 }
 .sign-in {
   grid-area: sign-in;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .current-date {
   color: red;
@@ -48,20 +58,23 @@ body {
   grid-area: nav;
   display: flex;
   flex-flow: row nowrap;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   white-space: nowrap;
-  overflow-x: auto;
+  overflow-x: scroll;
   scrollbar-width: none;
+  background-color: rgba(0, 102, 255, 0.6);
 }
 
 .nav-element {
   margin: 3px;
+  color: white;
 }
 .toolbar {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  border: 1px solid red;
+  background-color: rgba(0, 102, 255, 0.6);
+  /* border: 1px solid red; */
 }
 
 .router-main {
@@ -69,36 +82,45 @@ body {
   display: flex;
   flex-flow: column nowrap;
   overflow: scroll;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .top-articles {
   display: flex;
   flex-flow: column nowrap;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+.top-article {
+  padding: 2px;
 }
 
 .main-articles {
   display: flex;
   flex-flow: column nowrap;
-  overflow-y: scroll;
-  border: 1px solid red;
+  overflow: auto;
+  /* border: 1px solid red; */
 }
 
 .article-preview {
   padding: 2px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .footer {
   grid-area: footer;
-  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid red; */
   position: relative;
   padding: 0;
+  font-size: 0.7em;
+  background-color: rgba(0, 102, 255);
 }
 
 .footer-text {
-  border: 1px solid rgba(0, 102, 255, 0.6);
+  color: rgb(255, 255, 255);
 }
 
 .overlay-fader {
@@ -136,15 +158,21 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .button {
-  border: 2px solid rgba(0, 102, 255, 0.6);
+  font-family: inherit;
+  padding: 2px;
+  box-shadow: none;
+  border: none;
+  color: white;
+  /* border: 2px solid rgba(0, 102, 255, 0.6); */
+  background-color: transparent;
 }
 
 .button:hover {
-  border: 2px solid rgba(255, 0, 0, 0.6);
+  /* border: 2px solid rgba(255, 0, 0, 0.6); */
   cursor: pointer;
 }
 
