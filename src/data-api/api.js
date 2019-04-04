@@ -59,9 +59,9 @@ export const deleteComment = id => {
     .catch(err => console.log("Error from axios >>> ", err.response));
 };
 
-export const getUsers = () => {
+export const getSingleUser = username => {
   return request
-    .get(`/users`)
+    .get(`/users/${username}`)
     .then(({ data }) => {
       return data;
     })
