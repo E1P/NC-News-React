@@ -9,7 +9,9 @@ export default function SignIn(props) {
       <Link className="sign-in" to="/sign-in">
         Profile
       </Link>
-      <button onClick={() => handleAuth("")}>Sign out</button>
+      <button className="button" onClick={() => handleAuth("")}>
+        Sign out
+      </button>
     </div>
   ) : (
     <Link className="sign-in" to="/sign-in">
