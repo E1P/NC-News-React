@@ -57,6 +57,12 @@ body {
 .nav-element {
   margin: 3px;
 }
+.toolbar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border: 1px solid red;
+}
 
 .router-main {
   grid-area: router-main;
