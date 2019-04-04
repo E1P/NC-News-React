@@ -17,6 +17,7 @@ import FormButton from "./FormButton/FormButton";
 import DeleteButton from "./DeleteButton/DeleteButton";
 import Comments from "./Comments/Comments";
 import Sorter from "./Sorter/Sorter";
+import Voter from "./Voter/Voter";
 
 export {
   MainArticles,
@@ -37,5 +38,6 @@ export {
   FormButton,
   DeleteButton,
   Comments,
-  Sorter
+  Sorter,
+  Voter
 };
