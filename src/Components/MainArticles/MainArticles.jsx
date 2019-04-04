@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Loader, ArticlePreview, Sorter } from "../../Components";
+import { Loader, ArticlePreview, Sorter, FormButton } from "../index";
 import { Link } from "@reach/router";
 import { getArticles } from "../../data-api/api";
 
@@ -45,7 +45,11 @@ export default class MainArticles extends Component {
       );
     return (
       <div className="main-articles">
-        <Sorter handleSorting={this.handleSorting} />
+        <div className="toolbar">
+          <Sorter handleSorting={this.handleSorting} />
+          <FormButton type="article" />
+        </div>
+
         {articles.map(article => {
           return (
             <Link to={`/articles/${article.article_id}`} key={article.article_id}>
