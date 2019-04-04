@@ -26,10 +26,8 @@ export default class SingleArticle extends Component {
   };
 
   handleVote = currentVote => {
-    const votes = this.state.article.votes + currentVote;
-    const article = { ...this.state.article, votes };
-    this.setState({ article });
-    incrementVote();
+    const { article_id } = this.state.article;
+    incrementVote(article_id, currentVote);
   };
 
   render() {
