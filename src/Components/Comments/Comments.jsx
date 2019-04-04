@@ -25,7 +25,7 @@ export default class Comments extends Component {
   render() {
     return (
       <section>
-        <h4>Article critiques >>></h4>
+        <h4>User comments >>></h4>
         {this.state.comments.map(comment => {
           const { comment_id, author, body } = comment;
           return (
@@ -37,6 +37,7 @@ export default class Comments extends Component {
             </div>
           );
         })}
+        <div className="fade-spacer" />
       </section>
     );
   }
