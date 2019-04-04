@@ -17,9 +17,11 @@ export default class MainArticles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const propsChanged = prevProps.topic !== this.props.topic;
-    const stateChanged = prevState.sort_by !== this.state.sort_by || prevState.order !== this.state.order;
-    const params = { topic: this.props.topic, sort_by: this.state.sort_by, order: this.state.order };
+    const { sort_by, order } = this.state;
+    const { topic } = this.props;
+    const propsChanged = prevProps.topic !== topic;
+    const stateChanged = prevState.sort_by !== sort_by || prevState.order !== order;
+    const params = { topic, sort_by, order };
     if (propsChanged || stateChanged) this.fetchArticles(params);
   }
 
