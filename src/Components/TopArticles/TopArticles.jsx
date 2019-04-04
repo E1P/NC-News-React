@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getArticles } from "../../data-api/api";
-import { TopArticlePreview } from "../index";
+import { TopArticlePreview /* FormButton */ } from "../index";
 
 export default class TopArticles extends Component {
   state = {
@@ -35,6 +35,7 @@ export default class TopArticles extends Component {
         {this.state.topArticles.map(article => {
           return <TopArticlePreview key={article.article_id} article={article} />;
         })}
+        {/* <FormButton type="article" /> */}
       </div>
     );
   }
