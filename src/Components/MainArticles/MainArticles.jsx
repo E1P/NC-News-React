@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Loader, ArticlePreview } from "../../Components";
+import { Loader, ArticlePreview, Sorter } from "../../Components";
 import { Link } from "@reach/router";
 import { getArticles } from "../../data-api/api";
 
@@ -9,12 +9,6 @@ export default class MainArticles extends Component {
     sort_by: "",
     order: "",
     isLoading: true
-  };
-
-  fetchArticles = params => {
-    getArticles(params).then(({ articles }) => {
-      this.setState({ articles, isLoading: false });
-    });
   };
 
   componentDidMount() {
@@ -29,6 +23,16 @@ export default class MainArticles extends Component {
     if (propsChanged || stateChanged) this.fetchArticles(params);
   }
 
+  fetchArticles = params => {
+    getArticles(params).then(({ articles }) => {
+      this.setState({ articles, isLoading: false });
+    });
+  };
+
+  handleSorting = value => {
+    this.setState({ sort_by: value });
+  };
+
   render() {
     const { articles } = this.state;
     if (!articles.length)
@@ -39,6 +43,7 @@ export default class MainArticles extends Component {
       );
     return (
       <div className="main-articles">
+        <Sorter handleSorting={this.handleSorting} />
         {articles.map(article => {
           return (
             <Link to={`/articles/${article.article_id}`} key={article.article_id}>
