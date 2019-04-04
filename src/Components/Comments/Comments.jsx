@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getCommentsByArticleId } from "../../data-api/api";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
 export default class Comments extends Component {
   state = {
@@ -13,6 +14,13 @@ export default class Comments extends Component {
     });
   }
 
+  handleDelete = () => {
+    const { article_id } = this.props;
+    getCommentsByArticleId(article_id).then(({ comments }) => {
+      this.setState({ comments });
+    });
+  };
+
   render() {
     return (
       <section>
@@ -23,6 +31,7 @@ export default class Comments extends Component {
               {" "}
               <h5>Author: {comment.author}</h5>
               <p>{comment.body}</p>
+              <DeleteButton type="comment" id={comment.comment_id} />
             </div>
           );
         })}
