@@ -16,6 +16,7 @@ import ArticlePreview from "./ArticlePreview/ArticlePreview";
 import FormButton from "./FormButton/FormButton";
 import DeleteButton from "./DeleteButton/DeleteButton";
 import Comments from "./Comments/Comments";
+import Sorter from "./Sorter/Sorter";
 
 export {
   MainArticles,
@@ -35,5 +36,6 @@ export {
   SignInPage,
   FormButton,
   DeleteButton,
-  Comments
+  Comments,
+  Sorter
 };
