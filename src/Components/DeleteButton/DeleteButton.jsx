@@ -1,22 +1,10 @@
-import React, { Component } from "react";
-import { navigate } from "@reach/router";
-import { deleteArticle, deleteComment } from "../../data-api/api";
+import React from "react";
 
-export default class DeleteButton extends Component {
-  handleClickDelete = () => {
-    const { type, id } = this.props;
-    type === "article" &&
-      deleteArticle(id).then(() => {
-        navigate(`/`);
-      });
-    type === "comment" && deleteComment(id);
-  };
-
-  render() {
-    return (
-      <div className="button" onClick={this.handleClickDelete}>
-        Delete
-      </div>
-    );
-  }
+export default function DeleteButton(props) {
+  const { id, handleDelete } = props;
+  return (
+    <div className="button" onClick={() => handleDelete(id)}>
+      Delete
+    </div>
+  );
 }
