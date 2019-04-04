@@ -8,12 +8,17 @@ class App extends Component {
     user: null
   };
 
+  handleAuth = user => {
+    this.setState({ user });
+  };
+
   render() {
     const { user } = this.state;
+    const { handleAuth } = this;
     return (
       <div className="App fade-in">
         <Header />
-        <SignIn user={user} />
+        <SignIn user={user} handleAuth={handleAuth} />
         <NavBar />
         <Router className="router-main">
           <MainPage path="/" user={user} />
@@ -22,7 +27,7 @@ class App extends Component {
           <SingleArticle path="/articles/:article_id" user={user} />
           <Form path="/form/:type/" user={user} />
           <Form path="/form/:type/:article_id" user={user} />
-          <SignInPage path="/sign-in" userAuth={this.userAuth} user={user} />
+          <SignInPage path="/sign-in" handleAuth={handleAuth} user={user} />
         </Router>
         <Footer />
       </div>
