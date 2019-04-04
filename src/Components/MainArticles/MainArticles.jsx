@@ -6,8 +6,8 @@ import { getArticles } from "../../data-api/api";
 export default class MainArticles extends Component {
   state = {
     articles: [],
-    sort_by: "",
-    order: "",
+    sort_by: "created_at",
+    order: "desc",
     isLoading: true
   };
 
@@ -32,7 +32,7 @@ export default class MainArticles extends Component {
   };
 
   handleSorting = value => {
-    this.setState({ sort_by: value });
+    this.setState(value);
   };
 
   render() {
