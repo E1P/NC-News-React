@@ -25,26 +25,29 @@ export default class SingleArticle extends Component {
     navigate("/");
   };
 
-  handleVote = vote => {
+  handleVote = currentVote => {
+    const votes = this.state.article.votes + currentVote;
+    const article = { ...this.state.article, votes };
+    this.setState({ article });
     incrementVote();
   };
 
   render() {
-    const { article } = this.state;
+    const { votes, topic, title, body, author, created_at, comment_count } = this.state.article;
     const { article_id } = this.props;
     const { handleDelete } = this;
     return (
       <div>
         <FormButton article_id={article_id} type="comment" />
-        <Voter id={article_id} handleVote={this.handleVote} />
+        <Voter votes={votes} handleVote={this.handleVote} />
         <section className="article">
-          <h6>{article.topic}</h6>
-          <h5>{article.title}</h5>
-          <p>{article.body}</p>
-          <p>Author: {article.author}</p>
-          <p>{article.created_at}</p>
-          <p>Comments so far: {article.comment_count}</p>
-          <p>{article.votes} people like this article.</p>
+          <h6>{topic}</h6>
+          <h5>{title}</h5>
+          <p>{body}</p>
+          <p>Author: {author}</p>
+          <p>{created_at}</p>
+          <p>Comments so far: {comment_count}</p>
+          <p>{votes} people like this article.</p>
           <DeleteButton handleDelete={handleDelete} />
         </section>
         <Comments article_id={article_id} />
