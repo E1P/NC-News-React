@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class CurrentDate extends Component {
   state = {
-    date: 0
+    date: "getting time..."
   };
 
   render() {
@@ -10,7 +10,10 @@ export default class CurrentDate extends Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
+    this.setState({
+      date: Date().slice(0, 25)
+    });
+    this.timerID = setInterval(() => this.tick(), 500);
   }
 
   componentWillUnmount() {
@@ -19,7 +22,7 @@ export default class CurrentDate extends Component {
 
   tick() {
     this.setState({
-      date: Date.now()
+      date: Date().slice(0, 25)
     });
   }
 }
