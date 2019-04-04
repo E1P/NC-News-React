@@ -1,5 +1,5 @@
 import React from "react";
-import { MainArticles, TopArticles, FormButton, Sorter } from "../index";
+import { MainArticles, TopArticles, FormButton } from "../index";
 
 export default function MainPage(props) {
   const { topic } = props;
@@ -7,7 +7,6 @@ export default function MainPage(props) {
   return (
     <div>
       <div className="toolbar">
-        <Sorter />
         <FormButton type="article" />
       </div>
       <TopArticles topic={topic} limit={limit} />
