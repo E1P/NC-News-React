@@ -44,7 +44,9 @@ export default class SignInPage extends Component {
           <input required id="username" onChange={this.handleChange} />
           <label htmlFor="password">Password</label>
           <input required type="password" id="password" onChange={this.handleChange} />
-          <button type="submit">Sign in</button>
+          <button class="button" type="submit">
+            Sign in
+          </button>
         </form>
         {badInput && <p>User not found</p>}
       </Fragment>
