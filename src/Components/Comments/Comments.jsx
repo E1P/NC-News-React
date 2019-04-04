@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getCommentsByArticleId } from "../../data-api/api";
+import { getCommentsByArticleId, deleteComment } from "../../data-api/api";
 import DeleteButton from "../DeleteButton/DeleteButton";
 
 export default class Comments extends Component {
@@ -14,11 +14,12 @@ export default class Comments extends Component {
     });
   }
 
-  handleDelete = () => {
-    const { article_id } = this.props;
-    getCommentsByArticleId(article_id).then(({ comments }) => {
-      this.setState({ comments });
+  handleDelete = id => {
+    const comments = this.state.comments.filter(comment => {
+      return comment.comment_id !== id;
     });
+    this.setState({ comments });
+    deleteComment(id);
   };
 
   render() {
@@ -26,12 +27,13 @@ export default class Comments extends Component {
       <section>
         <h4>Article critiques >>></h4>
         {this.state.comments.map(comment => {
+          const { comment_id, author, body } = comment;
           return (
-            <div key={comment.comment_id} className="comment">
+            <div key={comment_id} className="comment">
               {" "}
-              <h5>Author: {comment.author}</h5>
-              <p>{comment.body}</p>
-              <DeleteButton type="comment" id={comment.comment_id} />
+              <h5>Author: {author}</h5>
+              <p>{body}</p>
+              <DeleteButton id={comment_id} handleDelete={this.handleDelete} />
             </div>
           );
         })}
