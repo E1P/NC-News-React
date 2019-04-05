@@ -24,7 +24,8 @@ export default class Comments extends Component {
 
   handleVote = currentVote => {
     const { article_id } = this.props;
-    incrementVote(article_id, currentVote);
+    const voteBody = { inc_votes: currentVote };
+    incrementVote(article_id, voteBody);
   };
 
   render() {
@@ -32,7 +33,7 @@ export default class Comments extends Component {
       <section>
         <h4>User comments >>></h4>
         {this.state.comments.map(comment => {
-          return <SingleComment key={comment.comment_id} comment={comment} handleDelete={this.handleDelete} />;
+          return <SingleComment key={comment.comment_id} comment={comment} handleDelete={this.handleDelete} handleVote={this.handleVote} />;
         })}
         <div className="fade-spacer" />
       </section>
