@@ -10,13 +10,13 @@
 
 .rectangle {
   height: 0;
-  width: 3vw;
+  width: 2vw;
   margin: 1%;
   border-radius: 10px;
   background-color: rgb(255, 0, 0, 0);
   animation-duration: 1s;
   animation-name: pulse;
-  /* animation-timing-function: steps(10); */
+  /* animation-timing-function: steps(4); */
   /* animation-direction: alternate-reverse; */
   animation-iteration-count: infinite;
 }
