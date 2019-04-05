@@ -138,7 +138,7 @@ body {
 .fade-spacer {
   height: 50px;
   background-color: white;
-  border-top: 2px solid black;
+  border-top: 2px solid rgba(0, 102, 255);
 }
 
 .article {
