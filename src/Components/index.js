@@ -6,7 +6,6 @@ import NavBar from "./NavBar/NavBar";
 import TopArticles from "./TopArticles/TopArticles";
 import SignIn from "./SignIn/SignIn";
 import Loader from "./Loader/Loader";
-import Button from "./Button/Button";
 import TopArticlePreview from "./TopArticlePreview/TopArticlePreview";
 import Form from "./Form/Form";
 import MainPage from "./MainPage/MainPage";
@@ -33,7 +32,6 @@ export {
   SignIn,
   TopArticles,
   Loader,
-  Button,
   TopArticlePreview,
   Form,
   SignInPage,
