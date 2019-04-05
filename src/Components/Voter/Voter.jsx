@@ -21,7 +21,7 @@ export default class Voter extends React.Component {
             Up
           </button>
         )}{" "}
-        {votes + voteChange}{" "}
+        {!isNaN(votes) && votes + voteChange}{" "}
         {voteChange !== -1 && (
           <button className="button" onClick={() => this.handleClick(-1)}>
             Down
