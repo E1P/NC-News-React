@@ -12,6 +12,7 @@ import Form from "./Form/Form";
 import MainPage from "./MainPage/MainPage";
 import SignInPage from "./SignInPage/SignInPage";
 import SingleArticle from "./SingleArticle/SingleArticle";
+import SingleComment from "./SingleComment/SingleComment";
 import ArticlePreview from "./ArticlePreview/ArticlePreview";
 import FormButton from "./FormButton/FormButton";
 import DeleteButton from "./DeleteButton/DeleteButton";
@@ -23,6 +24,7 @@ export {
   MainArticles,
   ArticlePreview,
   SingleArticle,
+  SingleComment,
   MainPage,
   CurrentDate,
   Footer,
