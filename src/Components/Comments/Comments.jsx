@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getCommentsByArticleId, deleteComment } from "../../data-api/api";
+import { getCommentsByArticleId, deleteComment, incrementVote } from "../../data-api/api";
 import { SingleComment } from "../index";
 
 export default class Comments extends Component {
@@ -22,12 +22,17 @@ export default class Comments extends Component {
     deleteComment(id);
   };
 
+  handleVote = currentVote => {
+    const { article_id } = this.state.article;
+    incrementVote(article_id, currentVote);
+  };
+
   render() {
     return (
       <section>
         <h4>User comments >>></h4>
         {this.state.comments.map(comment => {
-          return <SingleComment comment={comment} handleDelete={this.handleDelete} />;
+          return <SingleComment key={comment.comment_id} comment={comment} handleDelete={this.handleDelete} />;
         })}
         <div className="fade-spacer" />
       </section>
