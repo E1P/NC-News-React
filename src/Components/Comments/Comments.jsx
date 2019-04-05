@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getCommentsByArticleId, deleteComment } from "../../data-api/api";
-import DeleteButton from "../DeleteButton/DeleteButton";
+import { SingleComment } from "../index";
 
 export default class Comments extends Component {
   state = {
@@ -27,15 +27,7 @@ export default class Comments extends Component {
       <section>
         <h4>User comments >>></h4>
         {this.state.comments.map(comment => {
-          const { comment_id, author, body } = comment;
-          return (
-            <div key={comment_id} className="comment">
-              {" "}
-              <h5>Author: {author}</h5>
-              <p>{body}</p>
-              <DeleteButton id={comment_id} handleDelete={this.handleDelete} />
-            </div>
-          );
+          return <SingleComment comment={comment} handleDelete={this.handleDelete} />;
         })}
         <div className="fade-spacer" />
       </section>
