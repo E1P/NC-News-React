@@ -23,7 +23,7 @@ export default class Comments extends Component {
   };
 
   handleVote = currentVote => {
-    const { article_id } = this.state.article;
+    const { article_id } = this.props;
     incrementVote(article_id, currentVote);
   };
 
