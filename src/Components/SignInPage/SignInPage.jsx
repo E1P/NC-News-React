@@ -6,7 +6,7 @@ export default class SignInPage extends Component {
   state = {
     username: "",
     password: "",
-    badInput: false
+    disabled: false
   };
 
   componentDidMount() {}
@@ -22,19 +22,18 @@ export default class SignInPage extends Component {
     e.preventDefault();
     const { handleAuth } = this.props;
     const { username } = this.state;
-    getSingleUser(username).then(({ user }) => {
-      if (user) {
+    getSingleUser(username)
+      .then(({ user }) => {
         handleAuth(user);
         navigate("/");
-      } else {
-        this.setState({ badInput: true });
-      }
-    });
+      })
+      .catch(err => console.log("User not found"));
   };
 
   render() {
     const { user } = this.props;
-    const { badInput } = this.state;
+    const { disabled } = this.state;
+
     return user ? (
       <p>User profile...</p>
     ) : (
@@ -44,11 +43,11 @@ export default class SignInPage extends Component {
           <input required id="username" onChange={this.handleChange} />
           <label htmlFor="password">Password</label>
           <input required type="password" id="password" onChange={this.handleChange} />
-          <button class="button" type="submit">
+          <button disabled={disabled} /* className="button" */ type="submit">
             Sign in
           </button>
         </form>
-        {badInput && <p>User not found</p>}
+        {/* {badInput && <p>User not found</p>} */}
       </Fragment>
     );
   }
