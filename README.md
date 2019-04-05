@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# NC News
+
+### Front-end
+
+- [NC News](https://nc-news-v2.netlify.com/) - hosted on Netlify.
+- [Repository](https://github.com/E1P/NC-News-React) - Github
+
+### Back-end
+
+- [NC News API](https://e1p-nc-news.herokuapp.com/api) - hosted on Heroku.
+- [Repository](https://github.com/E1P/NC-News-Express) - Github
 
 ## Available Scripts
 
