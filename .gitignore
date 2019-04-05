@@ -11,6 +11,7 @@
 # production
 /build
 public/_redirects
+.netlify
 
 # misc
 .DS_Store
