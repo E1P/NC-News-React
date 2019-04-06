@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as aux from "../aux-funcs";
 
 const request = axios.create({
   baseURL: "https://e1p-nc-news.herokuapp.com/api"
@@ -32,6 +33,8 @@ export const getCommentsByArticleId = id => {
 };
 
 export const postNewArticle = article => {
+  article.topic = aux.makeLowerCase(article.topic);
+  console.log("Topic to lowercase", article);
   return request
     .post("/articles", article)
     .then(({ data }) => data)
