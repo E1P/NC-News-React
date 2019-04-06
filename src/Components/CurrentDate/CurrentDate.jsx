@@ -6,7 +6,13 @@ export default class CurrentDate extends Component {
   };
 
   render() {
-    return <div className="current-date">{this.state.date}</div>;
+    const { date } = this.state;
+    return (
+      <div className="current-date">
+        <div className="current-date-date">{date.slice(0, 11)}</div>
+        <div className="current-date-time">{date.slice(16)}</div>
+      </div>
+    );
   }
 
   componentDidMount() {
