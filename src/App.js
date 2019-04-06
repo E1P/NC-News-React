@@ -20,7 +20,7 @@ class App extends Component {
         <Header />
         <SignIn user={user} handleAuth={handleAuth} />
         <NavBar />
-        <Router className="router-main">
+        <Router className="router">
           <MainPage path="/" user={user} />
           <MainPage path="/articles" user={user} />
           <MainPage path="/topics/:topic" user={user} />
