@@ -101,11 +101,17 @@ body {
   padding: 2px;
 }
 
+.main-page {
+  display: flex;
+  flex-flow: column nowrap;
+
+  overflow-y: scroll;
+  overflow-x: clip;
+  scrollbar-width: thin;
+}
 .main-articles {
   display: flex;
   flex-flow: column nowrap;
-  overflow: auto;
-  /* border: 1px solid red; */
 }
 
 .article-preview {
