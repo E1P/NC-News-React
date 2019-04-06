@@ -62,7 +62,11 @@ body {
   white-space: nowrap;
   overflow-x: scroll;
   scrollbar-width: none;
+  -ms-overflow-style: none;
   background-color: rgba(0, 102, 255, 0.6);
+}
+.nav::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-element {
