@@ -26,7 +26,6 @@ export default class NavBar extends Component {
   };
 
   render() {
-    console.log("slugs >>>>", this.state.topicSlugs);
     const { topicSlugs } = this.state;
     return (
       <div className="nav">
@@ -34,7 +33,6 @@ export default class NavBar extends Component {
           <p className="nav-home">All</p>
         </Link>
         {topicSlugs.map(slug => {
-          console.log("Mapping >>>", slug);
           return (
             <Link key={slug} to={`/topics/${slug.toLowerCase()}`} className="nav-element">
               <div className="nav-element-div" />

@@ -43,7 +43,6 @@ export default class TopArticles extends Component {
           {topArticles.map(article => {
             return <TopArticlePreview key={article.article_id} article={article} />;
           })}
-          {/* <FormButton type="article" /> */}
         </div>
       )
     );
