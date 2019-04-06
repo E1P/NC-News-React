@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <div className="header">
       <Link to="/">
-        <h1>NC NEWS</h1>
+        <h1 className="header-text-main">NCN</h1>
       </Link>
       <CurrentDate />
     </div>
