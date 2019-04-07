@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 
 export default function SignIn(props) {
   const { user, handleAuth } = props;
-  return user ? (
+  /*   return user ? (
     <div>
       <p>Signed in as: {user.username}</p>
       <Link className="sign-in" to="/sign-in">
@@ -17,5 +17,15 @@ export default function SignIn(props) {
     <Link className="sign-in" to="/sign-in">
       Sign In
     </Link>
+  ); */
+
+  return (
+    <div className="sign-in">
+      <Link className="burger-container" to="/sign-in">
+        <div className="burger-element" />
+        <div className="burger-element" />
+        <div className="burger-element" />
+      </Link>
+    </div>
   );
 }
