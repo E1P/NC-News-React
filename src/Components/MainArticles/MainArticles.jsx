@@ -8,7 +8,7 @@ export default class MainArticles extends Component {
     articles: [],
     sort_by: "created_at",
     order: "desc",
-    isLoading: true
+    isLoaded: false
   };
 
   componentDidMount() {
@@ -27,7 +27,7 @@ export default class MainArticles extends Component {
 
   fetchArticles = params => {
     getArticles(params).then(({ articles }) => {
-      this.setState({ articles, isLoading: false });
+      this.setState({ articles, isLoaded: true });
     });
   };
 
@@ -39,7 +39,7 @@ export default class MainArticles extends Component {
     const { articles } = this.state;
     if (!articles.length)
       return (
-        <div /* className="main-articles" */>
+        <div>
           <Loader />
         </div>
       );
