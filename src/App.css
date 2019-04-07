@@ -77,7 +77,7 @@ body {
   color: black;
 }
 
-.sign-in {
+/* .sign-in {
   margin: 15px 0px 17px 12px;
   padding: 0 5px;
   grid-area: sign-in;
@@ -94,6 +94,25 @@ body {
 
 .sign-in > a {
   color: white;
+} */
+
+.sign-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 50%;
+  width: 50%;
+}
+
+.burger-element {
+  background-color: rgb(104, 104, 104);
+  height: 20%;
 }
 
 .nav {
@@ -189,7 +208,7 @@ body {
   margin-right: 8px;
   border-radius: 15px;
   /* background-color: grey; */
-  box-shadow: 3px 3px 3px rgba(128, 128, 128, 0.342);
+  box-shadow: 0px 0px 3px rgba(128, 128, 128, 0.342);
 }
 
 .footer {
