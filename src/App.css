@@ -63,24 +63,37 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding-left: 5%;
+  padding: 0 5%;
 }
 
 .header-text-main {
   font-family: "Orbitron", sans-serif;
-  font-size: 4em;
+  font-size: 4.5em;
+  padding-top: 10px;
 }
 
 .current-date {
+  font-size: 1.4em;
   color: black;
 }
 
 .sign-in {
+  margin: 15px 0px 17px 12px;
+  padding: 0 5px;
   grid-area: sign-in;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
+  background-color: rgba(255, 0, 0, 0.4);
+  border: 2px solid red;
+  border-right-width: 0;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  font-size: 1.3em;
+}
+
+.sign-in > a {
+  color: white;
 }
 
 .nav {
@@ -93,7 +106,6 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   border-top: 2px solid rgba(0, 102, 255, 0.6);
-  /* border-image-source: linear-gradient(rgba(0, 102, 255, 0.6), white); */
 }
 .nav::-webkit-scrollbar {
   display: none;
@@ -155,7 +167,7 @@ body {
   color: white;
   background-color: rgba(0, 102, 255, 0.6);
   padding: 10px 2px;
-  margin: 15px 5px;
+  margin: 5px 5px 15px 5px;
   border-radius: 15px;
 }
 
@@ -172,8 +184,12 @@ body {
 }
 
 .article-preview {
-  padding: 2px;
-  /* border: 1px solid red; */
+  padding: 5px;
+  margin: 0.3em;
+  margin-right: 17px;
+  border-radius: 15px;
+  /* background-color: grey; */
+  box-shadow: 3px 3px 3px rgba(128, 128, 128, 0.342);
 }
 
 .footer {
@@ -181,15 +197,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid red; */
   position: relative;
-  padding: 0;
-  font-size: 0.9em;
+  font-size: 1.2em;
   background-color: rgba(0, 102, 255, 0.6);
 }
 
 .footer-text {
   color: rgb(255, 255, 255);
+  margin: 0 5px;
 }
 
 .overlay-fader {
@@ -213,7 +228,6 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid grey; */
 }
 
 .comment {
@@ -221,7 +235,6 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid grey; */
 }
 
 .form {
@@ -235,7 +248,6 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  /* border: 1px solid red; */
 }
 
 .button {
@@ -244,12 +256,10 @@ body {
   box-shadow: none;
   border: none;
   color: black;
-  /* border: 2px solid rgba(0, 102, 255, 0.6); */
   background-color: transparent;
 }
 
 .button:hover {
-  /* border: 2px solid rgba(255, 0, 0, 0.6); */
   cursor: pointer;
 }
 
