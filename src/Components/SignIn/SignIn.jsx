@@ -21,12 +21,13 @@ export default class SignIn extends React.Component {
     return (
       <div className="sign-in">
         <div className="burger-container" onClick={this.handleDropdownClick}>
+          <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"} />
           <div className="burger-element" />
           <div className="burger-element" />
           <div className="burger-element" />
-          <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"} onClick={this.handleDropdownClick}>
+          {/* <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"} onClick={this.handleDropdownClick}>
             <div className="burger-menu" />
-          </div>
+          </div> */}
         </div>
       </div>
     );
