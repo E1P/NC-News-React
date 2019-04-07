@@ -1,9 +1,39 @@
 import React from "react";
-import { Link } from "@reach/router";
+// import { Link } from "@reach/router";
 
-export default function SignIn(props) {
-  const { user, handleAuth } = props;
-  /*   return user ? (
+export default class SignIn extends React.Component {
+  state = {
+    isLoaded: false,
+    hidden: true
+  };
+
+  componentDidMount() {
+    this.setState({ isLoaded: true });
+  }
+
+  handleDropdownClick = () => {
+    this.setState(this.state.hidden ? { hidden: false } : { hidden: true });
+  };
+
+  render() {
+    // const { user, handleAuth } = this.props;
+    const { hidden } = this.state;
+    return (
+      <div className="sign-in">
+        <div className="burger-container" onClick={this.handleDropdownClick}>
+          <div className="burger-element" />
+          <div className="burger-element" />
+          <div className="burger-element" />
+          <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"} onClick={this.handleDropdownClick}>
+            <div className="burger-menu" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+/*   return user ? (
     <div>
       <p>Signed in as: {user.username}</p>
       <Link className="sign-in" to="/sign-in">
@@ -18,14 +48,3 @@ export default function SignIn(props) {
       Sign In
     </Link>
   ); */
-
-  return (
-    <div className="sign-in">
-      <Link className="burger-container" to="/sign-in">
-        <div className="burger-element" />
-        <div className="burger-element" />
-        <div className="burger-element" />
-      </Link>
-    </div>
-  );
-}
