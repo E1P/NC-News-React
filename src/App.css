@@ -229,6 +229,14 @@ body {
   align-items: center;
   justify-content: center;
 }
+.article-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
 
 .comment {
   display: flex;
