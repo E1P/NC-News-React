@@ -30,13 +30,21 @@ export default class TopArticles extends Component {
   }
 
   render() {
+    const { topArticles } = this.state;
+    if (!topArticles.length)
+      return (
+        <div className="top-articles">
+          <p>No articles found on this topic...</p>
+        </div>
+      );
     return (
-      <div className="top-articles">
-        {this.state.topArticles.map(article => {
-          return <TopArticlePreview key={article.article_id} article={article} />;
-        })}
-        {/* <FormButton type="article" /> */}
-      </div>
+      topArticles.length && (
+        <div className="top-articles">
+          {topArticles.map(article => {
+            return <TopArticlePreview key={article.article_id} article={article} />;
+          })}
+        </div>
+      )
     );
   }
 }

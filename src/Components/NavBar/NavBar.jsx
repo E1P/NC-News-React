@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import { getTopics } from "../../data-api/api";
+import { capitaliseFirstLetter } from "../../aux-funcs";
 
 export default class NavBar extends Component {
   state = {
-    topics: []
+    topicSlugs: []
   };
 
   componentDidMount() {
@@ -12,30 +13,30 @@ export default class NavBar extends Component {
   }
 
   componentDidUpdate(_, prevState) {
-    if (prevState.topics.join("") !== this.state.topics.join("")) {
-      getTopics().then(({ topics }) => {
-        this.setState({ topics });
-      });
+    if (prevState.topicSlugs.join("") !== this.state.topicSlugs.join("")) {
+      this.fetchTopics();
     }
   }
 
   fetchTopics = () => {
     getTopics().then(({ topics }) => {
-      this.setState({ topics });
+      const topicSlugs = topics.map(topic => capitaliseFirstLetter(topic.slug));
+      this.setState({ topicSlugs });
     });
   };
 
   render() {
-    const { topics } = this.state;
+    const { topicSlugs } = this.state;
     return (
       <div className="nav">
         <Link to="/" className="nav-element">
-          All
+          <p className="nav-home">All</p>
         </Link>
-        {topics.map(topic => {
+        {topicSlugs.map(slug => {
           return (
-            <Link key={topic.slug} to={`/topics/${topic.slug}`} className="nav-element">
-              <p>{topic.slug}</p>
+            <Link key={slug} to={`/topics/${slug.toLowerCase()}`} className="nav-element">
+              <div className="nav-element-div" />
+              <p className="topic-slug">{slug}</p>
             </Link>
           );
         })}

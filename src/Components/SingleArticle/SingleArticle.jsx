@@ -36,7 +36,7 @@ export default class SingleArticle extends Component {
     const { article_id } = this.props;
     const { handleDelete } = this;
     return (
-      <div>
+      <div className="form-container">
         <FormButton article_id={article_id} type="comment" />
         <Voter votes={votes} handleVote={this.handleVote} />
         <section className="article">
