@@ -31,12 +31,12 @@ export default class Form extends Component {
   render() {
     const { type, article_id } = this.props;
     return (
-      <div>
+      <div className="form-page">
         {type} Form{" "}
         <div className="button" onClick={() => navigate(type === "comment" ? `/articles/${article_id}` : "/")}>
           Cancel
         </div>
-        <form className="form" onSubmit={this.handleSubmit} autoComplete="on">
+        <form className="form-inputs" onSubmit={this.handleSubmit} autoComplete="on">
           {type === "article" && (
             <Fragment>
               <label htmlFor="topic">Topic: </label>
