@@ -33,7 +33,7 @@ export default class SignIn extends React.Component {
           ) : (
             <Fragment>
               <p>Signed in as: {user.username}</p>
-              <Link className="sign-in" to="/sign-in">
+              <Link className="burger-dropdown-item" to="/sign-in">
                 Profile
               </Link>
               <button className="button" onClick={() => handleAuth("")}>
