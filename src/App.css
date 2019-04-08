@@ -125,6 +125,7 @@ body {
 
 .burger-dropdown {
   width: 200%;
+  border-left: 2px solid rgba(0, 102, 255, 0.6);
   transition-property: height, width;
   transition-duration: 0.3s;
 }
