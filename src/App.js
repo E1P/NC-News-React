@@ -8,8 +8,14 @@ class App extends Component {
     user: null
   };
 
+  componentDidMount() {
+    const user = localStorage.getItem("user");
+    if (user) this.setState({ user });
+  }
+
   handleAuth = user => {
     this.setState({ user });
+    localStorage.setItem("user", user);
   };
 
   render() {
