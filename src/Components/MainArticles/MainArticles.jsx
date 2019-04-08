@@ -37,6 +37,7 @@ export default class MainArticles extends Component {
 
   render() {
     const { articles } = this.state;
+    const { user } = this.props;
     if (!articles.length)
       return (
         <div>
@@ -47,7 +48,7 @@ export default class MainArticles extends Component {
       <div className="main-articles">
         <div className="toolbar">
           <Sorter handleSorting={this.handleSorting} />
-          <FormButton type="article" />
+          <FormButton type="article" user={user} />
         </div>
 
         {articles.map(article => {
