@@ -2,12 +2,12 @@ import React from "react";
 import { MainArticles, TopArticles } from "../index";
 
 export default function MainPage(props) {
-  const { topic } = props;
+  const { topic, user } = props;
   const limit = topic ? 1 : 3;
   return (
     <div className="main-page">
       <TopArticles topic={topic} limit={limit} />
-      <MainArticles topic={topic} />
+      <MainArticles topic={topic} user={user} />
     </div>
   );
 }
