@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "@reach/router";
 
 export default class SignIn extends React.Component {
@@ -16,7 +16,7 @@ export default class SignIn extends React.Component {
   };
 
   render() {
-    // const { user, handleAuth } = this.props;
+    const { user, handleAuth } = this.props;
     const { hidden } = this.state;
     return (
       <div className="sign-in">
@@ -24,14 +24,23 @@ export default class SignIn extends React.Component {
           <div className="burger-element" />
           <div className="burger-element" />
           <div className="burger-element" />
-          {/* <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"} onClick={this.handleDropdownClick}>
-            <div className="burger-menu" />
-          </div> */}
         </div>
         <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"}>
-          <Link to="/sign-in" class="burger-dropdown-item">
-            Sign in
-          </Link>
+          {!user ? (
+            <Link to="/sign-in" class="burger-dropdown-item">
+              Sign in
+            </Link>
+          ) : (
+            <Fragment>
+              <p>Signed in as: {user.username}</p>
+              <Link className="sign-in" to="/sign-in">
+                Profile
+              </Link>
+              <button className="button" onClick={() => handleAuth("")}>
+                Sign out
+              </button>
+            </Fragment>
+          )}
         </div>
       </div>
     );
