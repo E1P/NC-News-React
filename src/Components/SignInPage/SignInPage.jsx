@@ -33,7 +33,6 @@ export default class SignInPage extends Component {
   render() {
     const { user } = this.props;
     const { disabled } = this.state;
-
     return user ? (
       <p>User profile...</p>
     ) : (
@@ -43,11 +42,10 @@ export default class SignInPage extends Component {
           <input required id="username" onChange={this.handleChange} />
           <label htmlFor="password">Password</label>
           <input required type="password" id="password" onChange={this.handleChange} />
-          <button disabled={disabled} /* className="button" */ type="submit">
+          <button disabled={disabled} className="button" type="submit">
             Sign in
           </button>
         </form>
-        {/* {badInput && <p>User not found</p>} */}
       </Fragment>
     );
   }
