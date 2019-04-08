@@ -35,12 +35,12 @@ export default class SingleArticle extends Component {
   render() {
     const { votes, topic, title, body, author, created_at, comment_count } = this.state.article;
     const { articleIsLoaded } = this.state;
-    const { article_id, user, uri } = this.props;
+    const { article_id, user } = this.props;
     const { handleDelete } = this;
     return (
       articleIsLoaded && (
         <div className="article-container">
-          <FormButton article_id={article_id} type="comment" sender={uri} />
+          <FormButton article_id={article_id} type="comment" user={user} />
           <Voter votes={votes} handleVote={this.handleVote} user={user} className="voter" />
           <section className="article">
             <h6>{topic}</h6>
@@ -50,7 +50,7 @@ export default class SingleArticle extends Component {
             <p>{created_at.slice(0, 10)}</p>
             <p>Comments so far: {comment_count}</p>
             <p>{votes} people like this article.</p>
-            {author === user && <DeleteButton handleDelete={handleDelete} />}
+            {user && author === user.username && <DeleteButton handleDelete={handleDelete} />}
           </section>
           <Comments article_id={article_id} user={user} />
         </div>
