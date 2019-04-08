@@ -239,6 +239,10 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
+  -ms-overflow-style: thin;
+}
+.main-articles::-webkit-scrollbar {
+  display: thin;
 }
 
 .article-preview {
