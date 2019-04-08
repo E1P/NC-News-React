@@ -12,10 +12,10 @@ export default class Voter extends React.Component {
   };
 
   render() {
-    const { votes } = this.props;
+    const { votes, user } = this.props;
     const { voteChange } = this.state;
-    return (
-      <div className="voter">
+    return user ? (
+      <div /* className="voter-on" */>
         {voteChange !== 1 && (
           <button className="button" onClick={() => this.handleClick(+1)}>
             Up
@@ -27,6 +27,12 @@ export default class Voter extends React.Component {
             Down
           </button>
         )}
+      </div>
+    ) : (
+      <div className="voter-grey">
+        <p>Up</p>
+        {!isNaN(votes) && votes + voteChange}
+        <p>Down</p>
       </div>
     );
   }
