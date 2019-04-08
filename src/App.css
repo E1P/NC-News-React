@@ -85,7 +85,6 @@ body {
 }
 
 .burger-container {
-  /* position: relative; */
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -135,6 +134,7 @@ body {
 }
 
 .burger-dropdown-item {
+  font-size: 2em;
 }
 
 /* .burger-menu {
