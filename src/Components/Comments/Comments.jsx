@@ -29,11 +29,14 @@ export default class Comments extends Component {
   };
 
   render() {
+    const { user } = this.props;
     return (
       <section>
         <h4>User comments >>></h4>
         {this.state.comments.map(comment => {
-          return <SingleComment key={comment.comment_id} comment={comment} handleDelete={this.handleDelete} handleVote={this.handleVote} />;
+          return (
+            <SingleComment key={comment.comment_id} comment={comment} handleDelete={this.handleDelete} handleVote={this.handleVote} user={user} />
+          );
         })}
         <div className="fade-spacer" />
       </section>
