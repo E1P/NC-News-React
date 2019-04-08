@@ -8,8 +8,15 @@ class App extends Component {
     user: null
   };
 
+  componentDidMount() {
+    console.log("Storage >>> ", localStorage);
+    const user = localStorage.getItem("user");
+    if (user) this.setState({ user });
+  }
+
   handleAuth = user => {
     this.setState({ user });
+    localStorage.setItem("user", user);
   };
 
   render() {
