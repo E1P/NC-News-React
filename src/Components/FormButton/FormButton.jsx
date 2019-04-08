@@ -4,14 +4,12 @@ import { Link } from "@reach/router";
 export default function FormButton(props) {
   const { type, article_id, user } = props;
   return user ? (
-    <div className="button">
-      <Link to={`/form/${type}/${article_id || ""}`}>
-        <div>Post {`${type}`}</div>
-      </Link>
-    </div>
+    <Link to={`/form/${type}/${article_id || ""}`}>
+      <button>Post {`${type}`}</button>
+    </Link>
   ) : (
     <Link to="/sign-in">
-      <p>Sign in to post article</p>
+      <button>Sign in to post {type}</button>
     </Link>
   );
 }
