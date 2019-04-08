@@ -63,18 +63,25 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
+  padding: 0 3% 0 5%;
+  background-color: whitesmoke;
+  /* background-image: linear-gradient(90deg, rgba(255, 0, 0, 0.705) 30%, 50%, whitesmoke 70%); */
 }
 
 .header-text-main {
   font-family: "Orbitron", sans-serif;
   font-size: 4.5em;
   padding-top: 10px;
+  color: black;
+}
+
+.header-spacer {
+  width: 100%;
+  height: 100%;
 }
 
 .current-date {
   font-size: 1.4em;
-  color: black;
 }
 
 .sign-in {
@@ -82,6 +89,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: whitesmoke;
 }
 
 .burger-container {
@@ -91,7 +99,7 @@ body {
   height: 50%;
   width: 50%;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.4s;
   transform: rotate(0deg);
 }
 
@@ -101,33 +109,37 @@ body {
 }
 
 .burger-element {
-  background-color: rgb(56, 56, 56);
+  background-color: black;
   height: 5px;
 }
 
 .burger-dropdown-hidden {
   position: absolute;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   font-size: 1em;
   white-space: nowrap;
   overflow: hidden;
+  color: black;
   background-color: whitesmoke;
-  border-left: 2px solid rgba(0, 102, 255, 0);
+  border-left: 2px solid rgba(245, 245, 245, 0);
   right: 100%;
   top: 0;
   height: 100%;
   width: 0;
-  transition-property: height, width, background-color;
-  transition-duration: 0.2s;
+  transition-property: width;
+  transition-duration: 0.4s;
 }
 
 .burger-dropdown {
   display: flex;
   flex-flow: column nowrap;
   width: 200%;
-  transition-property: height, width;
+  border-left: 2px solid black;
+  background-color: whitesmoke;
+  transition-property: width, border-color;
   transition-duration: 0.3s;
 }
 
@@ -151,7 +163,7 @@ body {
   overflow-x: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  border-top: 2px solid rgba(0, 102, 255, 0.6);
+  border-top: 2px solid black;
 }
 .nav::-webkit-scrollbar {
   display: none;
@@ -265,7 +277,7 @@ body {
 .fade-spacer {
   min-height: 50px;
   background-color: white;
-  border-top: 2px solid rgba(0, 102, 255);
+  /* border-top: 2px solid rgba(0, 102, 255); */
 }
 
 .article {
