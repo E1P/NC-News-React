@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "@reach/router";
+import { Link } from "@reach/router";
 
 export default class SignIn extends React.Component {
   state = {
@@ -21,13 +21,17 @@ export default class SignIn extends React.Component {
     return (
       <div className="sign-in">
         <div className="burger-container" onClick={this.handleDropdownClick}>
-          <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"} />
           <div className="burger-element" />
           <div className="burger-element" />
           <div className="burger-element" />
           {/* <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"} onClick={this.handleDropdownClick}>
             <div className="burger-menu" />
           </div> */}
+        </div>
+        <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown"}>
+          <Link to="/sign-in" class="burger-dropdown-item">
+            Sign in
+          </Link>
         </div>
       </div>
     );
