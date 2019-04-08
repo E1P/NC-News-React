@@ -8,6 +8,7 @@ export default function Header() {
       <Link to="/">
         <h1 className="header-text-main">NCN</h1>
       </Link>
+      <div className="header-spacer" />
       <CurrentDate />
     </div>
   );
