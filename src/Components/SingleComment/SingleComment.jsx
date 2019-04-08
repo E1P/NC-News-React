@@ -10,7 +10,7 @@ export default function SingleComment(props) {
       <h5>Author: {author}</h5>
       <p>{body}</p>
       <Voter votes={votes} handleVote={handleVote} user={user} />
-      {user === author && <DeleteButton id={comment_id} handleDelete={handleDelete} />}
+      {user && user.username === author && <DeleteButton id={comment_id} handleDelete={handleDelete} />}
     </div>
   );
 }
