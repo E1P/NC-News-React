@@ -124,13 +124,15 @@ body {
 }
 
 .burger-dropdown {
+  display: flex;
+  flex-flow: column nowrap;
   width: 200%;
   transition-property: height, width;
   transition-duration: 0.3s;
 }
 
 .burger-dropdown-item {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 /* .burger-menu {
@@ -288,11 +290,17 @@ body {
   justify-content: center;
 }
 
-.form {
+.form-page {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   margin-top: 50px;
+}
+
+.form-inputs {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .sorter {
