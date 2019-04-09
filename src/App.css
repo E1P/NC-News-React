@@ -233,6 +233,28 @@ body {
   display: flex;
   flex-flow: column nowrap;
 }
+
+.error-page {
+  width: 100%;
+  color: black;
+  font-size: 1.2em;
+  overflow-wrap: anywhere;
+  overflow: scroll;
+  animation-name: warning;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  /* border: 2px solid red; */
+}
+
+@keyframes warning {
+  from {
+    color: black;
+  }
+  to {
+    color: red;
+  }
+}
+
 .main-articles {
   display: flex;
   flex-flow: column nowrap;
