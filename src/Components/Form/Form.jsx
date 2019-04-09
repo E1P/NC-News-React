@@ -16,10 +16,10 @@ export default class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { type, article_id, user } = this.props;
+    const { type, article_id, username } = this.props;
     console.log("Props >>> ", this.props);
-    console.log("User >>>", user.username);
-    const body = { ...this.state, [type === "article" ? "author" : "username"]: user.username };
+
+    const body = { ...this.state, [type === "article" ? "author" : "namename"]: username };
     console.log("Body >>> ", body);
     type === "article" &&
       postNewArticle(body).then(({ article }) => {
