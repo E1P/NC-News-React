@@ -29,7 +29,7 @@ class App extends Component {
         <NavBar />
         <Router className="router">
           <MainPage path="/" username={username} />
-          <ErrorPage path="/404" />
+          <ErrorPage path="/ErrorPage" />
           <MainPage path="/articles" username={username} />
           <MainPage path="/topics/:topic" username={username} />
           <SingleArticle path="/articles/:article_id" username={username} />
