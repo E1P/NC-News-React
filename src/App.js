@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import "./App.css";
-import { Footer, Header, NavBar, SignIn, MainPage, SignInPage, SingleArticle, Form } from "./Components/index";
+import { Footer, Header, NavBar, SignIn, MainPage, ErrorPage, SignInPage, SingleArticle, Form } from "./Components/index";
 
 class App extends Component {
   state = {
@@ -29,6 +29,7 @@ class App extends Component {
         <NavBar />
         <Router className="router">
           <MainPage path="/" username={username} />
+          <ErrorPage path="/404" />
           <MainPage path="/articles" username={username} />
           <MainPage path="/topics/:topic" username={username} />
           <SingleArticle path="/articles/:article_id" username={username} />
