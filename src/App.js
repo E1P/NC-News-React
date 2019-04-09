@@ -10,20 +10,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("Storage on mount>>> ", localStorage);
     const username = localStorage.getItem("nc_news_user");
     if (username && username !== "undefined") this.setState({ username });
   }
 
-  // componentDidUpdate(_, prevState) {
-  //   console.log("Storage on update >>> ", localStorage);
-  //   const user = localStorage.getItem("user");
-
-  //   if (user.username !== prevState.user.username) this.setState({ user });
-  // }
-
   handleAuth = user => {
-    console.log("handleAuth in App: ", user);
     this.setState({ user, username: user.username });
     localStorage.setItem("nc_news_user", user.username);
   };
@@ -31,8 +22,6 @@ class App extends Component {
   render() {
     const { user, username } = this.state;
     const { handleAuth } = this;
-    console.log("user in app: ", user);
-    console.log("username in app: ", username);
     return (
       <div className="App fade-in">
         <Header />

@@ -17,10 +17,7 @@ export default class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { type, article_id, username } = this.props;
-    console.log("Props >>> ", this.props);
-
     const body = { ...this.state, [type === "article" ? "author" : "namename"]: username };
-    console.log("Body >>> ", body);
     type === "article" &&
       postNewArticle(body).then(({ article }) => {
         navigate(`/articles/${article.article_id}`);
