@@ -5,7 +5,8 @@ import { capitaliseFirstLetter } from "../../aux-funcs";
 
 export default class NavBar extends Component {
   state = {
-    topicSlugs: []
+    topicSlugs: [],
+    selected: "all"
   };
 
   componentDidMount() {
@@ -20,23 +21,31 @@ export default class NavBar extends Component {
 
   fetchTopics = () => {
     getTopics().then(({ topics }) => {
-      const topicSlugs = topics.map(topic => capitaliseFirstLetter(topic.slug));
+      const topicSlugs = topics.map(topic => topic.slug);
       this.setState({ topicSlugs });
     });
   };
 
+  handleClick = input => {
+    this.setState({ selected: input });
+  };
+
   render() {
-    const { topicSlugs } = this.state;
+    const { topicSlugs, selected } = this.state;
+    const allSelected = selected === "all" ? "all" : "";
     return (
       <div className="nav">
-        <Link to="/" className="nav-element">
-          <p className="nav-home">All</p>
+        <Link to="/" className={`nav-element`} onClick={() => this.handleClick("all")}>
+          <div className={`nav-element-div ${allSelected}`} />
+          <p className={`nav-home`}>All</p>
         </Link>
         {topicSlugs.map(slug => {
+          const selectedSlug = slug === selected ? slug : "";
+          slug = capitaliseFirstLetter(slug);
           return (
-            <Link key={slug} to={`/topics/${slug.toLowerCase()}`} className="nav-element">
-              <div className="nav-element-div" />
-              <p className="topic-slug">{slug}</p>
+            <Link key={slug} to={`/topics/${slug.toLowerCase()}`} className={`nav-element`} onClick={() => this.handleClick(slug.toLowerCase())}>
+              <div className={`nav-element-div ${selectedSlug}`} />
+              <p className={`topic-slug`}>{slug}</p>
             </Link>
           );
         })}

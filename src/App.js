@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import "./App.css";
-import { Footer, Header, NavBar, SignIn, MainPage, SignInPage, SingleArticle, Form } from "./Components/index";
+import { Footer, Header, NavBar, SignIn, MainPage, ErrorPage, SignInPage, SingleArticle, Form } from "./Components/index";
 
 class App extends Component {
   state = {
@@ -35,6 +35,8 @@ class App extends Component {
           <Form path="/form/:type/" username={username} />
           <Form path="/form/:type/:article_id" username={username} />
           <SignInPage path="/sign-in" handleAuth={handleAuth} user={user} />
+          <ErrorPage path="/ErrorPage" />
+          <ErrorPage path="/*" />
         </Router>
         <Footer />
       </div>

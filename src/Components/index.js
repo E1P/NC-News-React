@@ -9,6 +9,7 @@ import Loader from "./Loader/Loader";
 import TopArticlePreview from "./TopArticlePreview/TopArticlePreview";
 import Form from "./Form/Form";
 import MainPage from "./MainPage/MainPage";
+import ErrorPage from "./ErrorPage/ErrorPage";
 import SignInPage from "./SignInPage/SignInPage";
 import SingleArticle from "./SingleArticle/SingleArticle";
 import SingleComment from "./SingleComment/SingleComment";
@@ -25,6 +26,7 @@ export {
   SingleArticle,
   SingleComment,
   MainPage,
+  ErrorPage,
   CurrentDate,
   Footer,
   Header,

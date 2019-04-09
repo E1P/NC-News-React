@@ -3,7 +3,7 @@ import { MainArticles, TopArticles } from "../index";
 
 export default function MainPage(props) {
   const { topic, username } = props;
-  const limit = topic ? 1 : 3;
+  const limit = topic ? 3 : 3;
   return (
     <div className="main-page">
       <TopArticles topic={topic} limit={limit} />
