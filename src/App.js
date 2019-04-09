@@ -29,13 +29,14 @@ class App extends Component {
         <NavBar />
         <Router className="router">
           <MainPage path="/" username={username} />
-          <ErrorPage path="/ErrorPage" />
           <MainPage path="/articles" username={username} />
           <MainPage path="/topics/:topic" username={username} />
           <SingleArticle path="/articles/:article_id" username={username} />
           <Form path="/form/:type/" username={username} />
           <Form path="/form/:type/:article_id" username={username} />
           <SignInPage path="/sign-in" handleAuth={handleAuth} user={user} />
+          <ErrorPage path="/ErrorPage" />
+          <ErrorPage path="/*" />
         </Router>
         <Footer />
       </div>
