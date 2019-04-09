@@ -41,7 +41,7 @@ export default class SingleArticle extends Component {
       articleIsLoaded && (
         <div className="article-container">
           <FormButton article_id={article_id} type="comment" username={username} />
-          {username && username !== author && <Voter votes={votes} handleVote={this.handleVote} username={username} className="voter" />}
+          {username !== author && <Voter votes={votes} handleVote={this.handleVote} username={username} />}
           <section className="article">
             <h6>{topic}</h6>
             <h5>{title}</h5>
@@ -50,7 +50,7 @@ export default class SingleArticle extends Component {
             <p>{created_at.slice(0, 10)}</p>
             <p>Comments so far: {comment_count}</p>
             <p>{votes} people like this article.</p>
-            {username && author === username && <DeleteButton handleDelete={handleDelete} />}
+            {author === username && <DeleteButton handleDelete={handleDelete} />}
           </section>
           <Comments article_id={article_id} username={username} />
         </div>
