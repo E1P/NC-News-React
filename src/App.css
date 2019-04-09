@@ -235,15 +235,20 @@ body {
 }
 
 .error-page {
-  padding: 100px 0;
+  display: flex;
+  /* padding: 100px 0; */
   width: 100%;
   font-size: 1.2em;
-  overflow-wrap: anywhere;
-  overflow: scroll;
+  justify-content: center;
+  align-items: center;
+  /* overflow-wrap: anywhere; */
+  overflow: none;
 }
 
 .four-zero-four {
+  color: black;
   animation-name: warning;
+  animation-delay: 1s;
   animation-duration: 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -251,13 +256,18 @@ body {
 
 @keyframes warning {
   from {
-    color: white;
+    color: red;
     font-size: 0.01em;
   }
-  to {
+  80% {
     color: red;
-    font-size: 4em;
+    font-size: 100em;
     transform: rotate(1080deg);
+  }
+
+  to {
+    colour: black;
+    font-size: 1.2em;
   }
 }
 
