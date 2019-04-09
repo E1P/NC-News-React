@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as aux from "../aux-funcs";
+import { navigate } from "@reach/router";
 
 const request = axios.create({
   baseURL: "https://e1p-nc-news.herokuapp.com/api"
@@ -20,7 +21,7 @@ export const getArticleById = id => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => console.log("Error from axios >>> ", err));
+    .catch(err => navigate("/ErrorPage", { replace: true, state: err }));
 };
 
 export const getCommentsByArticleId = id => {
