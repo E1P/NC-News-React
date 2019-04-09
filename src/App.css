@@ -235,23 +235,29 @@ body {
 }
 
 .error-page {
+  padding: 100px 0;
   width: 100%;
-  color: black;
   font-size: 1.2em;
   overflow-wrap: anywhere;
   overflow: scroll;
+}
+
+.four-zero-four {
   animation-name: warning;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  /* border: 2px solid red; */
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes warning {
   from {
-    color: black;
+    color: white;
+    font-size: 0.01em;
   }
   to {
     color: red;
+    font-size: 4em;
+    transform: rotate(1080deg);
   }
 }
 
