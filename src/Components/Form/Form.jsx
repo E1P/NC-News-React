@@ -16,8 +16,8 @@ export default class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { type, article_id } = this.props;
-    const body = { ...this.state, [type === "article" ? "author" : "username"]: "tickle122" };
+    const { type, article_id, username } = this.props;
+    const body = { ...this.state, [type === "article" ? "author" : "namename"]: username };
     type === "article" &&
       postNewArticle(body).then(({ article }) => {
         navigate(`/articles/${article.article_id}`);
@@ -28,12 +28,12 @@ export default class Form extends Component {
   render() {
     const { type, article_id } = this.props;
     return (
-      <div>
+      <div className="form-page">
         {type} Form{" "}
         <div className="button" onClick={() => navigate(type === "comment" ? `/articles/${article_id}` : "/")}>
           Cancel
         </div>
-        <form className="form" onSubmit={this.handleSubmit} autoComplete="on">
+        <form className="form-inputs" onSubmit={this.handleSubmit} autoComplete="on">
           {type === "article" && (
             <Fragment>
               <label htmlFor="topic">Topic: </label>

@@ -2,16 +2,14 @@ import React from "react";
 import { Link } from "@reach/router";
 
 export default function FormButton(props) {
-  const { type, article_id, user, sender } = props;
-  return user ? (
-    <div className="button">
-      <Link to={`/form/${type}/${article_id || ""}`}>
-        <div>Post {`${type}`}</div>
-      </Link>
-    </div>
+  const { type, article_id, username } = props;
+  return username ? (
+    <Link to={`/form/${type}/${article_id || ""}`}>
+      <button>Post {`${type}`}</button>
+    </Link>
   ) : (
-    <Link to="/sign-in" sender={sender}>
-      <p>Sign in to post article</p>
+    <Link to="/sign-in">
+      <button>Sign in to post {type}</button>
     </Link>
   );
 }

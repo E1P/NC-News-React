@@ -16,7 +16,7 @@ export default class SignIn extends React.Component {
   };
 
   render() {
-    const { user, handleAuth } = this.props;
+    const { username, handleAuth } = this.props;
     const { hidden } = this.state;
     return (
       <div className="sign-in">
@@ -26,19 +26,22 @@ export default class SignIn extends React.Component {
           <div className="burger-element" />
         </div>
         <div className={hidden ? "burger-dropdown-hidden" : "burger-dropdown-hidden burger-dropdown"}>
-          {!user ? (
+          {!username ? (
             <Link to="/sign-in" className="burger-dropdown-item">
               Sign in
             </Link>
           ) : (
             <Fragment>
-              <p>Signed in as: {user.username}</p>
-              <Link className="burger-dropdown-item" to="/sign-in">
-                Profile
-              </Link>
-              <button className="button" onClick={() => handleAuth("")}>
-                Sign out
-              </button>
+              <p className="burger-dropdown-item">
+                Signed in as:
+                {username}
+              </p>
+              <div className="burger-dropdown-item">
+                <Link to="/sign-in">Profile</Link>
+                <button className="button" onClick={() => handleAuth("")}>
+                  Sign out
+                </button>
+              </div>
             </Fragment>
           )}
         </div>
