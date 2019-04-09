@@ -12,7 +12,7 @@ export const getArticles = params => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => console.log("Error from axios >>> ", err));
+    .catch(err => navigate("/ErrorPage", { replace: true, state: err }));
 };
 
 export const getArticleById = id => {
@@ -21,7 +21,10 @@ export const getArticleById = id => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => navigate("/ErrorPage", { replace: true, state: err }));
+    .catch(({ response }) => {
+      console.log(response);
+      navigate("/ErrorPage", { replace: false, reload: false, state: { msg: "Error!!!" } });
+    });
 };
 
 export const getCommentsByArticleId = id => {
@@ -30,7 +33,10 @@ export const getCommentsByArticleId = id => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => console.log("Error from axios >>> ", err));
+    .catch(err => {
+      console.log(err);
+      // navigate("/ErrorPage", { replace: true, state: err });
+    });
 };
 
 export const postNewArticle = article => {
@@ -69,7 +75,7 @@ export const getSingleUser = username => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => console.log("Error from axios >>> ", err));
+    .catch(err => navigate("/ErrorPage", { replace: true, state: err }));
 };
 
 export const getTopics = () => {
@@ -78,7 +84,7 @@ export const getTopics = () => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => console.log("Error from axios >>> ", err));
+    .catch(err => navigate("/ErrorPage", { replace: true, state: err }));
 };
 
 export const incrementVote = (id, vote) => {
@@ -87,5 +93,5 @@ export const incrementVote = (id, vote) => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => console.log("Error from axios >>> ", err));
+    .catch(err => navigate("/ErrorPage", { replace: true, state: err }));
 };
