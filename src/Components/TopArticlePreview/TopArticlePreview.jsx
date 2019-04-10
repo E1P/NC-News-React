@@ -6,7 +6,7 @@ export default class TopArticlePreview extends Component {
     const { article } = this.props;
     return (
       <Link to={`/articles/${article.article_id}`} className={`top-article ${article.topic}`}>
-        <div>{article.title}</div>
+        <div className="top-article-title">{article.title}</div>
       </Link>
     );
   }

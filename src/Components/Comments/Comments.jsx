@@ -29,13 +29,19 @@ export default class Comments extends Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { username } = this.props;
     return (
       <section>
         <h4>User comments >>></h4>
         {this.state.comments.map(comment => {
           return (
-            <SingleComment key={comment.comment_id} comment={comment} handleDelete={this.handleDelete} handleVote={this.handleVote} user={user} />
+            <SingleComment
+              key={comment.comment_id}
+              comment={comment}
+              handleDelete={this.handleDelete}
+              handleVote={this.handleVote}
+              username={username}
+            />
           );
         })}
         <div className="fade-spacer" />
