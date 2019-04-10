@@ -16,10 +16,13 @@ a:visited {
 
 body {
   font-size: 62.5%;
+  display: flex;
+  justify-content: center;
   /* font-family: "Orbitron", sans-serif; */
   /* font-family: "Press Start 2P", cursive; */
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
+  background-color: whitesmoke;
 }
 
 @media screen and (max-width: 768px) {
@@ -37,11 +40,11 @@ body {
     /* margin: 0 auto; */
   }
 }
-/* @media screen and (max-width: 1280px) {
+@media screen and (max-width: 1000px) {
   .App {
     background-color: whitesmoke;
     display: grid;
-    grid-template: 0.9fr 0.3fr 7fr 0.3fr / 1fr 3fr 1fr;
+    grid-template: 0.9fr 0.5fr 7fr 0.3fr / 1fr 3fr 1fr;
     grid-template-areas:
       "header header sign-in"
       "nav nav nav"
@@ -49,11 +52,23 @@ body {
       "footer footer footer";
     width: 100%;
     height: 100vh;
-    margin: 0 auto;
-    font-size: 1.5em;
-    text-align: center;
   }
-} */
+}
+
+@media screen and (min-width: 1001px) {
+  .App {
+    background-color: whitesmoke;
+    display: grid;
+    grid-template: 0.9fr 0.5fr 7fr 0.3fr / 1fr 3fr 1fr;
+    grid-template-areas:
+      "header header sign-in"
+      "nav nav nav"
+      "router router router"
+      "footer footer footer";
+    width: 100%;
+    height: 100vh;
+  }
+}
 
 .header {
   grid-area: header;
@@ -64,6 +79,7 @@ body {
   align-items: center;
   padding: 0 3% 0 5%;
   background-color: whitesmoke;
+  border-bottom: 2px solid black;
   /* background-image: linear-gradient(90deg, rgba(255, 0, 0, 0.705) 30%, 50%, whitesmoke 70%); */
 }
 
@@ -80,7 +96,9 @@ body {
 }
 
 .current-date {
+  text-align: right;
   font-size: 1.4em;
+  white-space: nowrap;
 }
 
 .sign-in {
@@ -89,6 +107,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
+  border-bottom: 2px solid black;
 }
 
 .burger-container {
@@ -96,7 +115,7 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   height: 50%;
-  width: 50%;
+  width: 50px;
   cursor: pointer;
   transition: transform 0.4s;
   transform: rotate(0deg);
@@ -162,7 +181,7 @@ body {
   overflow-x: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  border-top: 2px solid black;
+  /* border-top: 2px solid black; */
 }
 .nav::-webkit-scrollbar {
   display: none;
@@ -240,8 +259,8 @@ body {
 
 .top-article-title {
   height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow-y: hidden;
 }
 
 .main-page {
@@ -378,6 +397,7 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  font-size: 0.8em;
 }
 
 .voter {
