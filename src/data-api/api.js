@@ -41,7 +41,6 @@ export const getCommentsByArticleId = id => {
 
 export const postNewArticle = article => {
   article.topic = aux.makeLowerCase(article.topic);
-  console.log("Topic to lowercase", article);
   return request
     .post("/articles", article)
     .then(({ data }) => data)
