@@ -13,38 +13,33 @@ export default class NavBar extends Component {
     this.fetchTopics();
   }
 
-  componentDidUpdate(_, prevState) {
+  componentDidUpdate(prevProps, prevState) {
+    const { topic } = this.props;
     if (prevState.topicSlugs.join("") !== this.state.topicSlugs.join("")) {
       this.fetchTopics();
     }
+    prevProps.topic !== topic && this.setState({ selected: topic });
   }
 
   fetchTopics = () => {
     getTopics().then(({ topics }) => {
       const topicSlugs = topics.map(topic => topic.slug);
+      topicSlugs.unshift("all");
       this.setState({ topicSlugs });
     });
   };
 
-  handleClick = input => {
-    this.setState({ selected: input });
-  };
-
   render() {
-    const { topicSlugs, selected } = this.state;
-    const allSelected = selected === "all" ? "all" : "";
+    const { topicSlugs } = this.state;
+    const { topic } = this.props;
     return (
       <div className="nav">
-        <Link to="/" className={`nav-element`} onClick={() => this.handleClick("all")}>
-          <div className={`nav-element-div ${allSelected}`} />
-          <p className={`nav-home`}>All</p>
-        </Link>
         {topicSlugs.map(slug => {
-          const selectedSlug = slug === selected ? slug : "";
+          const selectedTopic = topic === slug ? topic : "";
           slug = capitaliseFirstLetter(slug);
           return (
-            <Link key={slug} to={`/topics/${slug.toLowerCase()}`} className={`nav-element`} onClick={() => this.handleClick(slug.toLowerCase())}>
-              <div className={`nav-element-div ${selectedSlug}`} />
+            <Link key={slug} to={slug !== "All" ? `/topics/${slug.toLowerCase()}` : "/all"} className={`nav-element`}>
+              <div className={`nav-element-div ${selectedTopic}`} />
               <p className={`topic-slug`}>{slug}</p>
             </Link>
           );

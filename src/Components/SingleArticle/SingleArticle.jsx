@@ -14,9 +14,9 @@ export default class SingleArticle extends Component {
   }
 
   fetchArticleById = () => {
-    const { article_id } = this.props;
+    const { article_id, handleTopicChange } = this.props;
     getArticleById(article_id).then(({ article }) => {
-      this.setState({ article, articleIsLoaded: true });
+      this.setState({ article, articleIsLoaded: true }, () => handleTopicChange(this.state.article.topic));
     });
   };
 

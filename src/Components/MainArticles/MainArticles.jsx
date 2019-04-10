@@ -8,7 +8,9 @@ export default class MainArticles extends Component {
     articles: [],
     sort_by: "created_at",
     order: "desc",
-    isLoaded: false
+    isLoaded: false,
+    p: 1,
+    total_count: 0
   };
 
   componentDidMount() {
@@ -17,17 +19,27 @@ export default class MainArticles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { sort_by, order } = this.state;
+    const { sort_by, order, p } = this.state;
     const { topic } = this.props;
     const propsChanged = prevProps.topic !== topic;
-    const stateChanged = prevState.sort_by !== sort_by || prevState.order !== order;
-    const params = { topic, sort_by, order };
-    if (propsChanged || stateChanged) this.fetchArticles(params);
+    const orderSortChanged = prevState.sort_by !== sort_by || prevState.order !== order;
+    const pageLoadNeeded = p !== prevState.p;
+    const params = { topic, sort_by, order, p };
+    if (propsChanged || orderSortChanged) this.fetchArticles(params, false);
+    if (pageLoadNeeded) {
+      this.fetchArticles(params, true);
+    }
   }
 
-  fetchArticles = params => {
-    getArticles(params).then(({ articles }) => {
-      this.setState({ articles, isLoaded: true });
+  fetchArticles = (params, scrollEvent) => {
+    getArticles(params).then(({ articles, total_count }) => {
+      this.setState(prevState => {
+        if (scrollEvent) {
+          articles = prevState.articles.concat(articles);
+          return { articles, isLoaded: true, total_count };
+        }
+        return { articles, isLoaded: true, total_count, p: 1 };
+      });
     });
   };
 
@@ -35,9 +47,23 @@ export default class MainArticles extends Component {
     this.setState(value);
   };
 
+  handleScroll = event => {
+    const { p, total_count, isLoaded } = this.state;
+    const remainder = total_count - p * 15;
+    const { scrollTop, scrollTopMax } = event.target;
+
+    const scrollPercentage = (scrollTop / scrollTopMax) * 100;
+    if (scrollPercentage > 95 && remainder >= 0 && isLoaded) {
+      // console.log(scrollTop, scrollTopMax, this.state.articles.length, p, remainder);
+      const pageToLoad = p + 1;
+      this.setState({ p: pageToLoad, isLoaded: false });
+    }
+  };
+
   render() {
     const { articles } = this.state;
     const { username } = this.props;
+    // console.log("Articles length >>> ", articles.length);
     if (!articles.length)
       return (
         <div>
@@ -45,7 +71,7 @@ export default class MainArticles extends Component {
         </div>
       );
     return (
-      <div className="main-articles">
+      <div className="main-articles" onScroll={this.handleScroll}>
         <div className="toolbar">
           <Sorter handleSorting={this.handleSorting} />
           <FormButton type="article" username={username} />

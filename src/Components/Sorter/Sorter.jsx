@@ -4,6 +4,7 @@ export default function Sorter(props) {
   const { handleSorting } = props;
   return (
     <div className="sorter">
+      <p>Sort by: </p>
       <button className="button" onClick={() => handleSorting({ sort_by: "votes" })}>
         Votes
       </button>
