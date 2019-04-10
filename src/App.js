@@ -6,7 +6,8 @@ import { Footer, Header, NavBar, SignIn, MainPage, ErrorPage, SignInPage, Single
 class App extends Component {
   state = {
     user: null,
-    username: ""
+    username: "",
+    currentTopic: "all"
   };
 
   componentDidMount() {
@@ -19,19 +20,23 @@ class App extends Component {
     localStorage.setItem("nc_news_user", user.username);
   };
 
+  handleTopicChange = (topic = "all") => {
+    this.setState({ currentTopic: topic });
+  };
+
   render() {
-    const { user, username } = this.state;
-    const { handleAuth } = this;
+    const { user, username, currentTopic } = this.state;
+    const { handleAuth, handleTopicChange } = this;
     return (
       <div className="App fade-in">
         <Header />
         <SignIn username={username} handleAuth={handleAuth} />
-        <NavBar />
+        <NavBar topic={currentTopic} />
         <Router className="router">
-          <MainPage path="/" username={username} />
-          <MainPage path="/articles" username={username} />
-          <MainPage path="/topics/:topic" username={username} />
-          <SingleArticle path="/articles/:article_id" username={username} />
+          <MainPage path="/" username={username} handleTopicChange={handleTopicChange} />
+          <MainPage path="/all" username={username} handleTopicChange={handleTopicChange} />
+          <MainPage path="/topics/:topic" username={username} handleTopicChange={handleTopicChange} />
+          <SingleArticle path="/articles/:article_id" username={username} handleTopicChange={handleTopicChange} />
           <Form path="/form/:type/" username={username} />
           <Form path="/form/:type/:article_id" username={username} />
           <SignInPage path="/sign-in" handleAuth={handleAuth} user={user} />
