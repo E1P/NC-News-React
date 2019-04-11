@@ -114,8 +114,8 @@ body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  height: 50%;
-  width: 50px;
+  height: 4em;
+  width: 4em;
   cursor: pointer;
   transition: transform 0.4s;
   transform: rotate(0deg);
