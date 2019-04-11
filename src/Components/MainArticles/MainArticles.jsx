@@ -52,8 +52,9 @@ export default class MainArticles extends Component {
     const { p, total_count, isLoaded } = this.state;
     const remainder = total_count - p * 15;
     const { scrollTop, scrollHeight, clientHeight } = event.target;
-    const scrollAtEnd = scrollTop === scrollHeight - clientHeight;
-    if (scrollAtEnd && remainder >= 0 && isLoaded) {
+    const scrollNearEnd = scrollTop >= scrollHeight - clientHeight - 50;
+    if (scrollNearEnd && remainder >= 0 && isLoaded) {
+      console.log("Loading next page...");
       const pageToLoad = p + 1;
       this.setState({ p: pageToLoad, isLoaded: false });
     }
