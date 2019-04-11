@@ -48,13 +48,12 @@ export default class MainArticles extends Component {
   };
 
   handleScroll = event => {
+    event.persist();
     const { p, total_count, isLoaded } = this.state;
     const remainder = total_count - p * 15;
-    const { scrollTop, scrollTopMax } = event.target;
-
-    const scrollPercentage = (scrollTop / scrollTopMax) * 100;
-    if (scrollPercentage > 95 && remainder >= 0 && isLoaded) {
-      // console.log(scrollTop, scrollTopMax, this.state.articles.length, p, remainder);
+    const { scrollTop, scrollHeight, clientHeight } = event.target;
+    const scrollAtEnd = scrollTop === scrollHeight - clientHeight;
+    if (scrollAtEnd && remainder >= 0 && isLoaded) {
       const pageToLoad = p + 1;
       this.setState({ p: pageToLoad, isLoaded: false });
     }
@@ -63,7 +62,6 @@ export default class MainArticles extends Component {
   render() {
     const { articles } = this.state;
     const { username } = this.props;
-    // console.log("Articles length >>> ", articles.length);
     if (!articles.length)
       return (
         <div>
