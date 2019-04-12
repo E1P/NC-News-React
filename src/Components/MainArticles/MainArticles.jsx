@@ -14,8 +14,10 @@ export default class MainArticles extends Component {
   };
 
   componentDidMount() {
-    const params = { topic: this.props.topic, sort_by: this.state.sort_by, order: this.state.order };
-    this.fetchArticles(params);
+    const { sort_by, order, p } = this.state;
+    const { topic } = this.props;
+    const params = { topic, sort_by, order, p };
+    this.fetchArticles(params, false);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -50,7 +52,7 @@ export default class MainArticles extends Component {
   handleScroll = event => {
     event.persist();
     const { p, total_count, isLoaded } = this.state;
-    const remainder = total_count - p * 15;
+    const remainder = total_count - p * 10;
     const { scrollTop, scrollHeight, clientHeight } = event.target;
     const scrollNearEnd = scrollTop >= scrollHeight - clientHeight - 50;
     if (scrollNearEnd && remainder >= 0 && isLoaded) {

@@ -16,6 +16,7 @@ a:visited {
 
 body {
   font-size: 62.5%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   /* font-family: "Orbitron", sans-serif; */
@@ -23,6 +24,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
   background-color: whitesmoke;
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -35,7 +37,7 @@ body {
       "nav nav nav"
       "router router router"
       "footer footer footer";
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     /* margin: 0 auto; */
   }
@@ -50,7 +52,7 @@ body {
       "nav nav nav"
       "router router router"
       "footer footer footer";
-    width: 100%;
+    width: 100vw;
     height: 100vh;
   }
 }
@@ -65,13 +67,14 @@ body {
       "nav nav nav"
       "router router router"
       "footer footer footer";
-    width: 100%;
+    width: 100vw;
     height: 100vh;
   }
 }
 
 .header {
   grid-area: header;
+  max-width: 1200px;
   /* font-family: "Press Start 2P", cursive; */
   display: flex;
   flex-flow: row nowrap;
@@ -312,9 +315,6 @@ body {
   overflow-x: hidden;
   scrollbar-width: thin;
   -ms-overflow-style: thin;
-}
-.main-articles::-webkit-scrollbar {
-  display: thin;
 }
 
 .article-preview {
