@@ -17,6 +17,7 @@ a:visited {
 body {
   font-size: 62.5%;
   width: 100vw;
+  height: 110vh;
   display: flex;
   justify-content: center;
   /* font-family: "Orbitron", sans-serif; */
