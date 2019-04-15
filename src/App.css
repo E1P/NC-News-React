@@ -32,18 +32,18 @@ body {
   .App {
     background-color: whitesmoke;
     display: grid;
-    grid-template: 0.9fr 0.5fr 7fr 0.3fr / 1fr 3fr 1fr;
+    grid-template: 1fr 0.5fr 7fr / 1fr 3fr 1fr;
     grid-template-areas:
-      "header header sign-in"
+      "spacer spacer spacer"
       "nav nav nav"
       "router router router"
-      "footer footer footer";
+      /* "footer footer footer" */;
     width: 100vw;
     height: 100vh;
     overflow: scroll;
   }
 }
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .App {
     background-color: whitesmoke;
     display: grid;
@@ -71,11 +71,16 @@ body {
     width: 100vw;
     height: 100vh;
   }
-}
+} */
 
 .header {
-  grid-area: header;
+  /* grid-area: header; */
+  width: 80vw;
+  height: 20vw;
   max-width: 1200px;
+  position: fixed;
+  top: 0;
+  left: 0;
   /* font-family: "Press Start 2P", cursive; */
   display: flex;
   flex-flow: row nowrap;
@@ -106,7 +111,11 @@ body {
 }
 
 .sign-in {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 20vw;
+  width: 20vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,20 +185,27 @@ body {
   background-color: whitesmoke;
 } */
 
+.hidden-top-spacer {
+  grid-area: spacer;
+  height: 20vw;
+  width: 100vw;
+}
+
 .nav {
   grid-area: nav;
+  /* height: 100px; */
   display: flex;
   flex-flow: row nowrap;
   align-items: space-between;
   white-space: nowrap;
-  overflow-x: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  /* overflow-x: scroll; */
+  /* scrollbar-width: none; */
+  /* -ms-overflow-style: none; */
   /* border-top: 2px solid black; */
 }
-.nav::-webkit-scrollbar {
+/* .nav::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .nav-element {
   display: flex;
@@ -235,7 +251,7 @@ body {
   grid-area: router;
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-size: 1.5em;
 }
 
@@ -312,10 +328,10 @@ body {
 .main-articles {
   display: flex;
   flex-flow: column nowrap;
-  overflow-y: scroll;
+  /* overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
-  -ms-overflow-style: thin;
+  -ms-overflow-style: thin; */
 }
 
 .article-preview {
@@ -329,11 +345,13 @@ body {
 }
 
 .footer {
-  grid-area: footer;
+  /* grid-area: footer; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
   font-size: 1.2em;
   background-color: black;
 }
