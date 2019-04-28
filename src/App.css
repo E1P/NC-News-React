@@ -32,12 +32,12 @@ body {
   .App {
     background-color: whitesmoke;
     display: grid;
-    grid-template: 1fr 0.5fr 7fr / 1fr 3fr 1fr;
+    grid-template: 1fr 0.5fr 7fr 0.3fr / 1fr 3fr 1fr;
     grid-template-areas:
-      "spacer spacer spacer"
+      "header header sign-in"
       "nav nav nav"
       "router router router"
-      /* "footer footer footer" */;
+      "footer footer footer";
     height: 100%;
     width: 100vw;
     overflow: scroll;
@@ -74,13 +74,13 @@ body {
 } */
 
 .header {
-  /* grid-area: header; */
+  grid-area: header;
   width: 80vw;
   height: 20vw;
   max-width: 1200px;
-  position: fixed;
-  top: 0;
-  left: 0;
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
   /* font-family: "Press Start 2P", cursive; */
   display: flex;
   flex-flow: row nowrap;
@@ -111,9 +111,8 @@ body {
 }
 
 .sign-in {
-  position: fixed;
-  top: 0;
-  right: 0;
+  grid-area: sign-in;
+  position: relative;
   height: 20vw;
   width: 20vw;
   display: flex;
@@ -345,11 +344,11 @@ body {
 }
 
 .footer {
-  /* grid-area: footer; */
+  grid-area: footer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100vw;
   font-size: 1.2em;
