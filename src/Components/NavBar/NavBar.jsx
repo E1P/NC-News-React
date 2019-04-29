@@ -14,11 +14,14 @@ export default class NavBar extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { topic } = this.props;
+    const { topic, handleTopicChange } = this.props;
     if (prevState.topicSlugs.join("") !== this.state.topicSlugs.join("")) {
       this.fetchTopics();
     }
-    prevProps.topic !== topic && this.setState({ selected: topic });
+    if (prevProps.topic !== topic) {
+      handleTopicChange(topic);
+      this.setState({ selected: topic });
+    }
   }
 
   fetchTopics = () => {
