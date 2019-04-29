@@ -28,11 +28,11 @@ class App extends Component {
     const { user, username, currentTopic } = this.state;
     const { handleAuth, handleTopicChange } = this;
     return (
-      <div className="App fade-in" onScroll={({ target }) => console.log(target)}>
+      <div className="App fade-in" onScroll={() => console.log("Scrolling...")}>
         <Header />
         <SignIn username={username} handleAuth={handleAuth} />
         {/* <div className="hidden-top-spacer" /> */}
-        <NavBar topic={currentTopic} />
+        <NavBar topic={currentTopic} handleTopicChange={handleTopicChange} />
         <Router className="router">
           <MainPage path="/" username={username} handleTopicChange={handleTopicChange} />
           <MainPage path="/all" username={username} handleTopicChange={handleTopicChange} />
