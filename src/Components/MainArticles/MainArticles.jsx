@@ -54,7 +54,6 @@ export default class MainArticles extends Component {
     const { p, total_count, isLoaded } = this.state;
     const remainder = total_count - p * 10;
     const { scrollTop, scrollHeight, clientHeight } = event.target;
-    console.log(scrollTop);
     const scrollNearEnd = scrollTop >= scrollHeight - clientHeight - 50;
     if (scrollNearEnd && remainder >= 0 && isLoaded) {
       console.log("Loading next page...");
@@ -73,7 +72,7 @@ export default class MainArticles extends Component {
         </div>
       );
     return (
-      <div className="main-articles" onScroll={this.handleScroll}>
+      <div className="main-articles">
         <div className="toolbar">
           <Sorter handleSorting={this.handleSorting} />
           <FormButton type="article" username={username} />
