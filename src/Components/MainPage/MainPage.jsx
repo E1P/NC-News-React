@@ -2,7 +2,10 @@ import React from "react";
 import { MainArticles, TopArticles } from "../index";
 
 export default class MainPage extends React.Component {
-  componentDidMount() {}
+  componentDidMount() {
+    const { handleTopicChange, topic } = this.props;
+    handleTopicChange(topic);
+  }
 
   componentDidUpdate(prevProps) {
     const { handleTopicChange, topic } = this.props;
