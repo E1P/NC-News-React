@@ -11,6 +11,7 @@ export default class SingleArticle extends Component {
 
   componentDidMount() {
     this.fetchArticleById();
+    this.props.handleAllLoaded(false);
   }
 
   fetchArticleById = () => {
