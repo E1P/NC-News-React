@@ -21,17 +21,22 @@ export default class MainArticles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // console.log("updating", this.state.articles.length);
     const { sort_by, order } = this.state;
     const { topic, p, handleAllLoaded } = this.props;
     const topicChanged = prevProps.topic !== topic;
     const orderSortChanged = prevState.sort_by !== sort_by || prevState.order !== order;
     const pageLoadNeeded = p !== prevProps.p;
     const params = { topic, sort_by, order, p };
+    if (topicChanged && pageLoadNeeded) {
+      this.fetchArticles(params, false);
+      handleAllLoaded(true);
+    }
     if (topicChanged || orderSortChanged) {
       this.fetchArticles(params, false);
       handleAllLoaded(false);
     }
-    if (pageLoadNeeded) {
+    if (pageLoadNeeded && !topicChanged) {
       this.fetchArticles(params, true);
     }
   }
