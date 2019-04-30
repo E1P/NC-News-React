@@ -13,12 +13,12 @@ export default class MainPage extends React.Component {
   }
 
   render() {
-    const { topic, username } = this.props;
+    const { topic, username, p } = this.props;
     const limit = topic ? 1 : 3;
     return (
       <div className="main-page">
-        <TopArticles topic={topic} limit={limit} />
-        <MainArticles topic={topic} username={username} />
+        <TopArticles topic={topic} p={p} limit={limit} />
+        <MainArticles topic={topic} p={p} username={username} />
       </div>
     );
   }
