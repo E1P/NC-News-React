@@ -61,6 +61,7 @@ export default class SignInPage extends Component {
             </p>
             <div className="form-spacer" />
             <input required type="password" id="password" onChange={this.handleChange} />
+            <div className="form-spacer" />
             <button disabled={disabled} className="button" type="submit">
               Sign in
             </button>
