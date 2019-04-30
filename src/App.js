@@ -34,8 +34,8 @@ class App extends Component {
   handleScroll = event => {
     event.persist();
     const { p, allLoaded } = this.state;
-    const { clientHeight, scrollHeight, scrollTop } = event.target;
-    if (clientHeight + scrollTop === scrollHeight && !allLoaded) {
+    const { clientHeight, scrollHeight, scrollTop, baseURI } = event.target;
+    if (clientHeight + scrollTop === scrollHeight && !allLoaded && !baseURI.includes("articles")) {
       const pageToLoad = p + 1;
       this.setState({ p: pageToLoad });
     }
@@ -64,7 +64,7 @@ class App extends Component {
           <MainPage path="/" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
           <MainPage path="/all" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
           <MainPage path="/topics/:topic" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
-          <SingleArticle path="/articles/:article_id" username={username} handleTopicChange={handleTopicChange} />
+          <SingleArticle path="/articles/:article_id" username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
           <Form path="/form/:type/" username={username} />
           <Form path="/form/:type/:article_id" username={username} />
           <SignInPage path="/sign-in" handleAuth={handleAuth} user={user} />
