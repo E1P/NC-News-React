@@ -10,7 +10,6 @@ class App extends Component {
     currentTopic: "all",
     p: 1,
     hidden: true,
-    justLoaded: false,
     allLoaded: false
   };
 
@@ -19,19 +18,13 @@ class App extends Component {
     if (username && username !== "undefined") this.setState({ username, p: 1 });
   }
 
-  componentDidUpdate(_, prevState) {
-    if (this.state.justLoaded) {
-      this.setState({ justLoaded: false });
-    }
-  }
-
   handleAuth = user => {
     this.setState({ user, username: user.username });
     localStorage.setItem("nc_news_user", user.username);
   };
 
   handleTopicChange = (topic = "all") => {
-    this.setState({ currentTopic: topic, p: 1 });
+    this.setState({ currentTopic: topic, p: 1, allLoaded: false });
   };
 
   handleAllLoaded = input => {
@@ -40,11 +33,11 @@ class App extends Component {
 
   handleScroll = event => {
     event.persist();
-    const { p, justLoaded, allLoaded } = this.state;
+    const { p, allLoaded } = this.state;
     const { clientHeight, scrollHeight, scrollTop } = event.target;
-    if (clientHeight + scrollTop === scrollHeight && !justLoaded && !allLoaded) {
+    if (clientHeight + scrollTop === scrollHeight && !allLoaded) {
       const pageToLoad = p + 1;
-      this.setState({ p: pageToLoad, justLoaded: true });
+      this.setState({ p: pageToLoad });
     }
   };
 
