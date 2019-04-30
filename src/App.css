@@ -40,7 +40,8 @@ body {
       "footer footer footer";
     height: 100%;
     width: 100vw;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: none;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -55,6 +56,8 @@ body {
       "footer footer footer";
     width: 100vw;
     height: 100vh;
+    overflow-x: scroll;
+    overflow-y: none;
   }
 }
 
@@ -70,6 +73,8 @@ body {
       "footer footer footer";
     width: 100vw;
     height: 100vh;
+    overflow-x: scroll;
+    overflow-y: none;
   }
 }
 
@@ -414,7 +419,12 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.8em;
+}
+
+.sorter-header {
+  padding: 0 3px;
 }
 
 .voter {
