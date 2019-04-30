@@ -42,7 +42,6 @@ class App extends Component {
 
   handleOutsideDropDownClick = event => {
     const isOutside = !/burger/.test(event.target.className);
-    console.log("is outside: ", isOutside);
     if (isOutside) {
       this.setState({ hidden: true });
     }
@@ -55,7 +54,6 @@ class App extends Component {
       <div className="App fade-in" onScroll={handleScroll} onClick={handleOutsideDropDownClick}>
         <Header />
         <SignIn username={username} handleAuth={handleAuth} handleDropdownClick={handleDropdownClick} hidden={hidden} />
-        {/* <div className="hidden-top-spacer" /> */}
         <NavBar topic={currentTopic} handleTopicChange={handleTopicChange} />
         <Router className="router">
           <MainPage path="/" p={p} username={username} handleTopicChange={handleTopicChange} />
