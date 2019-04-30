@@ -35,6 +35,7 @@ export default class SignInPage extends Component {
     const { disabled } = this.state;
     return (
       <div className="form">
+        <div className="form-spacer" />
         {user ? (
           <Fragment>
             <p>User profile...</p>
@@ -44,9 +45,21 @@ export default class SignInPage extends Component {
           </Fragment>
         ) : (
           <form className="form-inputs" onSubmit={this.handleSubmit}>
-            <label htmlFor="username">User: </label>
+            <p>
+              <label htmlFor="username">Username: </label>
+              (use "E1P")
+            </p>
+            <div className="form-spacer" />
             <input required id="username" onChange={this.handleChange} />
-            <label htmlFor="password">Password</label>
+            <div className="form-spacer" />
+            <p>
+              <label htmlFor="password">Password: </label>(anything!{" "}
+              <span role="img" aria-label="lock & key emoji">
+                🔐
+              </span>
+              )
+            </p>
+            <div className="form-spacer" />
             <input required type="password" id="password" onChange={this.handleChange} />
             <button disabled={disabled} className="button" type="submit">
               Sign in
