@@ -9,25 +9,25 @@ export default class MainArticles extends Component {
     sort_by: "created_at",
     order: "desc",
     isLoaded: false,
-    p: 1,
+    // p: 1,
     total_count: 0
   };
 
   componentDidMount() {
-    const { sort_by, order, p } = this.state;
-    const { topic } = this.props;
+    const { sort_by, order } = this.state;
+    const { topic, p } = this.props;
     const params = { topic, sort_by, order, p };
     this.fetchArticles(params, false);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { sort_by, order, p } = this.state;
-    const { topic } = this.props;
-    const propsChanged = prevProps.topic !== topic;
+    const { sort_by, order } = this.state;
+    const { topic, p } = this.props;
+    const topicChanged = prevProps.topic !== topic;
     const orderSortChanged = prevState.sort_by !== sort_by || prevState.order !== order;
-    const pageLoadNeeded = p !== prevState.p;
+    const pageLoadNeeded = p !== prevProps.p;
     const params = { topic, sort_by, order, p };
-    if (propsChanged || orderSortChanged) this.fetchArticles(params, false);
+    if (topicChanged || orderSortChanged) this.fetchArticles(params, false);
     if (pageLoadNeeded) {
       this.fetchArticles(params, true);
     }
@@ -49,18 +49,18 @@ export default class MainArticles extends Component {
     this.setState(value);
   };
 
-  handleScroll = event => {
-    event.persist();
-    const { p, total_count, isLoaded } = this.state;
-    const remainder = total_count - p * 10;
-    const { scrollTop, scrollHeight, clientHeight } = event.target;
-    const scrollNearEnd = scrollTop >= scrollHeight - clientHeight - 50;
-    if (scrollNearEnd && remainder >= 0 && isLoaded) {
-      console.log("Loading next page...");
-      const pageToLoad = p + 1;
-      this.setState({ p: pageToLoad, isLoaded: false });
-    }
-  };
+  // handleScroll = event => {
+  //   event.persist();
+  //   const { p, total_count, isLoaded } = this.state;
+  //   const remainder = total_count - p * 10;
+  //   // const { scrollTop, scrollHeight, clientHeight } = event.target;
+  //   // const scrollNearEnd = scrollTop >= scrollHeight - clientHeight - 50;
+  //   if (remainder >= 0 && isLoaded) {
+  //     console.log("Loading next page...");
+  //     const pageToLoad = p + 1;
+  //     this.setState({ p: pageToLoad, isLoaded: false });
+  //   }
+  // };
 
   render() {
     const { articles } = this.state;
