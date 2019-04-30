@@ -431,10 +431,12 @@ body {
 }
 
 .button {
+  font-size: 1em;
   font-family: inherit;
-  padding: 2px;
+  padding: 2px 5px;
   box-shadow: none;
-  border: none;
+  border: 2px solid grey;
+  border-radius: 5px;
   color: black;
   background-color: transparent;
 }
