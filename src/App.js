@@ -60,7 +60,7 @@ class App extends Component {
         <Header />
         <SignIn username={username} handleAuth={handleAuth} handleDropdownClick={handleDropdownClick} hidden={hidden} />
         <NavBar topic={currentTopic} handleTopicChange={handleTopicChange} />
-        <Router className="router">
+        <Router primary={false} className="router">
           <MainPage path="/" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
           <MainPage path="/all" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
           <MainPage path="/topics/:topic" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
