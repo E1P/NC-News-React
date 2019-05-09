@@ -29,10 +29,10 @@ export default class Comments extends Component {
   };
 
   render() {
-    const { username } = this.props;
+    const { username, topic } = this.props;
     return (
-      <section>
-        <h4>User comments >>></h4>
+      <section className="comments-container">
+        <h4>Comments</h4>
         {this.state.comments.map(comment => {
           return (
             <SingleComment
@@ -41,6 +41,7 @@ export default class Comments extends Component {
               handleDelete={this.handleDelete}
               handleVote={this.handleVote}
               username={username}
+              topic={topic}
             />
           );
         })}
