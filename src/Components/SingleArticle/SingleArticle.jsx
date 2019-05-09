@@ -16,9 +16,11 @@ export default class SingleArticle extends Component {
 
   fetchArticleById = () => {
     const { article_id, handleTopicChange } = this.props;
-    getArticleById(article_id).then(({ article }) => {
-      this.setState({ article, articleIsLoaded: true }, () => handleTopicChange(this.state.article.topic));
-    });
+    getArticleById(article_id)
+      .then(({ article }) => {
+        this.setState({ article, articleIsLoaded: true }, () => handleTopicChange(this.state.article.topic));
+      })
+      .catch(err => console.log("Article fetch error: ", err));
   };
 
   handleDelete = () => {
@@ -40,20 +42,23 @@ export default class SingleArticle extends Component {
     const { handleDelete } = this;
     return (
       articleIsLoaded && (
-        <div className="article-container">
-          <FormButton article_id={article_id} type="comment" username={username} />
-          {username !== author && <Voter votes={votes} handleVote={this.handleVote} username={username} />}
-          <section className="article">
-            <h6>{topic}</h6>
-            <h5>{title}</h5>
-            <p>{body}</p>
-            <p>Author: {author}</p>
-            <p>{created_at.slice(0, 10)}</p>
-            <p>Comments so far: {comment_count}</p>
-            <p>{votes} people like this article.</p>
-            {author === username && <DeleteButton handleDelete={handleDelete} />}
-          </section>
-          <Comments article_id={article_id} username={username} />
+        <div className="article-single">
+          <div className={`article-container ${topic}`}>
+            <section className="article-body">
+              <h4>{title}</h4>
+              <p>{body}</p>
+            </section>
+            <section className="article-details">
+              <p>By: {author}</p>
+              <p>{created_at.slice(0, 10)}</p>
+              <p>Comments: {comment_count}</p>
+              <p>Votes: {votes}</p>
+              {author === username && <DeleteButton handleDelete={handleDelete} />}
+              {username !== author && <Voter votes={votes} handleVote={this.handleVote} username={username} />}
+              <FormButton article_id={article_id} type="comment" username={username} />
+            </section>
+          </div>
+          <Comments article_id={article_id} username={username} topic={topic} />
         </div>
       )
     );
