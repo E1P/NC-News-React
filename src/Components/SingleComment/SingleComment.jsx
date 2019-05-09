@@ -3,9 +3,9 @@ import { DeleteButton, Voter } from "../index";
 
 export default function SingleComment(props) {
   const { comment_id, author, body, votes } = props.comment;
-  const { handleDelete, handleVote, username } = props;
+  const { handleDelete, handleVote, username, topic } = props;
   return (
-    <div className="comment">
+    <div className={`comment ${topic}`}>
       {" "}
       <h5>Author: {author}</h5>
       <p>{body}</p>
