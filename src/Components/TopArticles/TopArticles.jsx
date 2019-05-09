@@ -34,12 +34,13 @@ export default class TopArticles extends Component {
     if (!topArticles.length)
       return (
         <div className="top-articles">
-          <p>No articles found on this topic...</p>
+          <p>Loading...</p>
         </div>
       );
     return (
       topArticles.length && (
         <div className="top-articles">
+          <h5 style={{ padding: "5px" }}>Most popular</h5>
           {topArticles.map(article => {
             return <TopArticlePreview key={article.article_id} article={article} />;
           })}
