@@ -31,7 +31,7 @@ export default class SignIn extends React.Component {
                 {username}
               </p>
               <div className="burger-dropdown-item">
-                <Link to="/sign-in">Profile</Link>
+                {/* <Link to="/sign-in">Profile</Link> */}
                 <button
                   className="button"
                   onClick={() => {
