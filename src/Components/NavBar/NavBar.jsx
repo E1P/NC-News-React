@@ -36,17 +36,19 @@ export default class NavBar extends Component {
     const { topicSlugs } = this.state;
     const { topic } = this.props;
     return (
-      <div className="nav">
-        {topicSlugs.map(slug => {
-          const selectedTopic = topic === slug ? topic : "";
-          slug = capitaliseFirstLetter(slug);
-          return (
-            <Link key={slug} to={slug !== "All" ? `/topics/${slug.toLowerCase()}` : "/all"} className={`nav-element`}>
-              <div className={`nav-element-div ${selectedTopic}`} />
-              <p className={`topic-slug`}>{slug}</p>
-            </Link>
-          );
-        })}
+      <div className="nav-container">
+        <div className="nav">
+          {topicSlugs.map(slug => {
+            const selectedTopic = topic === slug ? topic : "";
+            slug = capitaliseFirstLetter(slug);
+            return (
+              <Link key={slug} to={slug !== "All" ? `/topics/${slug.toLowerCase()}` : "/all"} className={`nav-element`}>
+                <div className={`nav-element-div ${selectedTopic}`} />
+                <p className={`topic-slug`}>{slug}</p>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     );
   }
