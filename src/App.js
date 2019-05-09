@@ -32,9 +32,10 @@ class App extends Component {
   };
 
   handleScroll = event => {
-    event.persist();
+    // event.persist();
     const { p, allLoaded } = this.state;
     const { clientHeight, scrollHeight, scrollTop, baseURI } = event.target;
+    console.log("Scrolling...");
     if (clientHeight + scrollTop === scrollHeight && !allLoaded && !baseURI.includes("articles")) {
       const pageToLoad = p + 1;
       this.setState({ p: pageToLoad });
@@ -56,22 +57,27 @@ class App extends Component {
     const { user, username, currentTopic, p, hidden } = this.state;
     const { handleAuth, handleTopicChange, handleDropdownClick, handleScroll, handleOutsideDropDownClick, handleAllLoaded } = this;
     return (
-      <div className="App fade-in" onScroll={handleScroll} onClick={handleOutsideDropDownClick}>
-        <Header />
-        <SignIn username={username} handleAuth={handleAuth} handleDropdownClick={handleDropdownClick} hidden={hidden} />
-        <NavBar topic={currentTopic} handleTopicChange={handleTopicChange} />
-        <Router primary={false} className="router">
-          <MainPage path="/" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
-          <MainPage path="/all" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
-          <MainPage path="/topics/:topic" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
-          <SingleArticle path="/articles/:article_id" username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
-          <Form path="/form/:type/" username={username} />
-          <Form path="/form/:type/:article_id" username={username} />
-          <SignInPage path="/sign-in" handleAuth={handleAuth} user={user} />
-          <ErrorPage path="/ErrorPage" />
-          <ErrorPage path="/*" />
-        </Router>
-        <Footer />
+      <div className="body-scroller" onScroll={handleScroll}>
+        <div className="App fade-in" onClick={handleOutsideDropDownClick}>
+          <div className="header-container">
+            <Header />
+            <SignIn username={username} handleAuth={handleAuth} handleDropdownClick={handleDropdownClick} hidden={hidden} />
+          </div>
+          <div className="app-borderline" />
+          <NavBar topic={currentTopic} handleTopicChange={handleTopicChange} />
+          <Router primary={false} className="router">
+            <MainPage path="/" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
+            <MainPage path="/all" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
+            <MainPage path="/topics/:topic" p={p} username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
+            <SingleArticle path="/articles/:article_id" username={username} handleTopicChange={handleTopicChange} handleAllLoaded={handleAllLoaded} />
+            <Form path="/form/:type/" username={username} />
+            <Form path="/form/:type/:article_id" username={username} />
+            <SignInPage path="/sign-in" handleAuth={handleAuth} user={user} />
+            <ErrorPage path="/ErrorPage" />
+            <ErrorPage path="/*" />
+          </Router>
+          <Footer />
+        </div>
       </div>
     );
   }
