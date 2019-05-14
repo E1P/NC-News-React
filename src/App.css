@@ -26,6 +26,7 @@ body {
   text-decoration: none;
   background-color: whitesmoke;
   overflow: hidden;
+  /* margin-bottom: 2.6%; */
 }
 
 .body-scroller {
@@ -46,11 +47,10 @@ body {
       "footer footer footer";
     height: 100vh;
     width: 100vw;
-    /* overflow-y: scroll;
-    overflow-x: hidden; */
+    /* overflow-x: hidden; */
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 769px) and (max-width: 1000px) {
   .App {
     background-color: whitesmoke;
     display: grid;
@@ -140,15 +140,14 @@ body {
   position: relative;
   max-width: 80px;
   max-height: 80px;
-  /* width: 20vw; */
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
-  /* border-bottom: 2px solid black; */
 }
 
 .burger-container {
+  margin-left: 10px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -324,9 +323,9 @@ body {
 .main-page {
   width: 100%;
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  flex-flow: row wrap;
 }
 
 .error-page {
@@ -370,14 +369,14 @@ body {
   display: flex;
   flex-flow: column nowrap;
   max-width: 1150px;
-  width: calc(100% - 20px);
-  margin-right: 20px;
+  width: calc(100% - 10px);
+  margin-right: 10px;
 }
 
 .article-preview {
   padding: 5px 5px 5px 10px;
   margin: 0.3em;
-  margin-right: 8px;
+  /* margin-right: 8px; */
   border-radius: 15px;
   border-left: 5px solid transparent;
   box-shadow: 0px 0px 7px rgba(128, 128, 128, 0.342);
@@ -389,8 +388,10 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
   font-size: 1.2em;
   background-color: black;
+  z-index: 2;
 }
 
 .footer-text {
@@ -400,17 +401,17 @@ body {
 
 .overlay-fader {
   position: absolute;
-  bottom: 100%;
+  bottom: 0vh;
   height: 50px;
   width: 100%;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255, 1) 80%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(245, 245, 245, 1) 80%);
   z-index: 1;
   pointer-events: none;
 }
 
 .fade-spacer {
   min-height: 50px;
-  background-color: white;
+  background-color: whitesmoke;
   /* border-top: 2px solid rgba(0, 102, 255); */
 }
 
