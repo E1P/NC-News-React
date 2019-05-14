@@ -17,12 +17,15 @@ export default class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { type, article_id, username } = this.props;
-    const body = { ...this.state, [type === "article" ? "author" : "namename"]: username };
+    const body = { ...this.state, [type === "article" ? "author" : "username"]: username };
     type === "article" &&
       postNewArticle(body).then(({ article }) => {
         navigate(`/articles/${article.article_id}`);
       });
-    type === "comment" && postNewComment(article_id, body).then(() => navigate(`/articles/${article_id}`));
+    type === "comment" &&
+      postNewComment(article_id, body)
+        .then(() => navigate(`/articles/${article_id}`))
+        .catch(err => console.log(err));
   };
 
   render() {
