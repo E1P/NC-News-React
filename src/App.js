@@ -77,6 +77,7 @@ class App extends Component {
             <ErrorPage path="/*" />
           </Router>
           <Footer />
+          <div className="overlay-fader" />
         </div>
       </div>
     );
