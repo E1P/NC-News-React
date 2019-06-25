@@ -64,7 +64,7 @@ export default class MainArticles extends Component {
     const { username } = this.props;
     if (!articles.length)
       return (
-        <div>
+        <div className="loader-position-container">
           <Loader />
         </div>
       );
