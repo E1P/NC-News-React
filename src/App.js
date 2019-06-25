@@ -35,7 +35,7 @@ class App extends Component {
     // event.persist();
     const { p, allLoaded } = this.state;
     const { clientHeight, scrollHeight, scrollTop, baseURI } = event.target;
-    console.log("Scrolling...");
+    // console.log("Scrolling...");
     if (clientHeight + scrollTop === scrollHeight && !allLoaded && !baseURI.includes("articles")) {
       const pageToLoad = p + 1;
       this.setState({ p: pageToLoad });
