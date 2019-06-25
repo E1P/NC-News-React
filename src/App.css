@@ -364,6 +364,12 @@ body {
   }
 }
 
+.loader-position-container {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+}
+
 .main-articles {
   grid-area: main-articles;
   display: flex;
